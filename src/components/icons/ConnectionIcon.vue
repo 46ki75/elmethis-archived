@@ -45,7 +45,7 @@ withDefaults(
 )
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 @keyframes drawPolyine {
   0% {
     stroke-dashoffset: 0%;
