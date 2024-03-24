@@ -25,7 +25,7 @@
         y1="44"
         y2="80"
         stroke="black"
-        style="stroke-width: 0.25rem"
+        style="stroke-width: 0.4rem"
       />
     </svg>
   </AnimateInView>
@@ -64,7 +64,7 @@ withDefaults(
 }
 
 .circle {
-  stroke-width: 0.25rem;
+  stroke-width: 0.4rem;
   stroke-dasharray: 283;
   stroke-dashoffset: 283;
   animation:
