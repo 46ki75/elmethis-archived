@@ -34,6 +34,7 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import GridLoadingIcon from '../icons/GridLoadingIcon.vue'
+import { useMagicKeys } from '@vueuse/core'
 
 const props = withDefaults(
   defineProps<{
@@ -74,6 +75,11 @@ watch(
     fetchImage(newsrc)
   }
 )
+
+const { escape } = useMagicKeys()
+watch(escape, (isKeyDown) => {
+  if (isKeyDown) isModalShown.value = false
+})
 </script>
 
 <style scoped>
