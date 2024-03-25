@@ -19,16 +19,17 @@
             stroke: isDisable ? 'gray' : color,
             fill: isChecked ? (isDisable ? 'gray' : color) : 'transparent'
           }"
-          strokeWidth="{0.8}"
+          strokeWidth="0.8"
         />
         <polyline
           v-if="isChecked"
-          css="line"
+          class="line"
           points="5,12 10,17 19,8"
           strokeWidth="1.5"
           style="stroke: white"
           fill="transparent"
         />
+
         <line
           v-if="isDisable"
           x1="2"
