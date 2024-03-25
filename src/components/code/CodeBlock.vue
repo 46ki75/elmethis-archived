@@ -91,11 +91,6 @@ const props = withDefaults(
      * Light theme / Dark theme.
      */
     theme?: 'light' | 'dark'
-    /**
-     * Whether it is currently loading or not.
-     * A fallback is displayed on the caption and code parts while loading.
-     */
-    isLoading?: boolean
   }>(),
   { theme: 'light', language: 'txt' }
 )

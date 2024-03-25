@@ -77,12 +77,3 @@ export const WithCaption: Story = {
     caption: 'src/main.rs'
   }
 }
-
-export const Loading: Story = {
-  args: {
-    code,
-    language: 'rust',
-    caption: 'src/main.rs',
-    isLoading: true
-  }
-}
