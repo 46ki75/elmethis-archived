@@ -112,9 +112,9 @@ const { copy, copied } = useClipboard({ source: props.code })
 
 onMounted(async () => {
   if (props.theme === 'light') {
-    await import('./prism-one-light.css')
+    await import('./prism-one-light.scss')
   } else {
-    await import('./prism-one-dark.css')
+    await import('./prism-one-dark.scss')
   }
   Prism.highlightAll()
 })
