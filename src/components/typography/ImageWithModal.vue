@@ -118,11 +118,7 @@ watch(escape, (isKeyDown) => {
   width: 100%;
   height: 100vh;
 
-  /* background-color: rgba(0, 0, 0, ${isModalShown ? 0.6 : 0}); */
-  /* backdrop-filter: blur(${isModalShown ? '0.125rem' : '0rem'}); */
   transition: all 0.2s;
-
-  /* pointer-events: ${isModalShown ? 'all' : 'none'}; */
 
   user-select: none;
   cursor: zoom-out;
@@ -135,7 +131,6 @@ watch(escape, (isKeyDown) => {
     max-width: 100%;
     max-height: 100%;
     transition: all 0.2s;
-    /* opacity: ${isModalShown ? 1 : 0}; */
   }
 }
 </style>
