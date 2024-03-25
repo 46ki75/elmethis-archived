@@ -1,5 +1,5 @@
 <template>
-  <div ref="observerElement" style="display: inline">
+  <div ref="observerElement" style="display: inline-flex">
     <div :key="renderKey" style="display: inline">
       <slot></slot>
     </div>
@@ -7,33 +7,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, watch } from 'vue'
+import { useElementVisibility } from '@vueuse/core'
 
 const renderKey = ref(0)
 const observerElement = ref<HTMLElement | null>(null)
+const targetIsVisible = useElementVisibility(observerElement)
 
-const observerCallback: IntersectionObserverCallback = (entries, _) => {
-  entries.forEach((entry) => {
-    if (entry.intersectionRatio > 0) renderKey.value++
-  })
-}
-
-// IntersectionObserverのインスタンスを作成
-const observer = new IntersectionObserver(observerCallback, {
-  root: null, // ビューポートをルートとして使用
-  rootMargin: '100px',
-  threshold: 0 // 対象が10%ビューポートに入ったらトリガー
-})
-
-onMounted(() => {
-  if (observerElement.value) {
-    observer.observe(observerElement.value)
-  }
-})
-
-onUnmounted(() => {
-  if (observerElement.value) {
-    observer.unobserve(observerElement.value)
-  }
+watch(targetIsVisible, () => {
+  if (targetIsVisible.value) renderKey.value++
 })
 </script>
