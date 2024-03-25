@@ -28,8 +28,20 @@
         {{ caption ?? language }}
       </div>
 
-      <div :class="`copy ${theme === 'light' ? 'hover-light' : 'hover-dark'}`">
-        <svg width="16" height="16" viewBox="0 0 384 512">
+      <div class="copy" @click="copy(code)">
+        <span
+          :style="{
+            opacity: copied ? 1 : 0,
+            color: theme === 'light' ? 'rgb(40, 44, 52)' : 'rgb(250, 250, 250)'
+          }"
+          >Source code copied!</span
+        >
+        <svg
+          :class="theme === 'light' ? 'hover-light' : 'hover-dark'"
+          width="16"
+          height="16"
+          viewBox="0 0 384 512"
+        >
           <path
             d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM192 40c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm144 418c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V118c0-3.3 2.7-6 6-6h42v36c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12v-36h42c3.3 0 6 2.7 6 6z"
             :style="{
@@ -70,6 +82,7 @@
 import Prism from 'prismjs'
 import 'prismjs/components/prism-rust'
 import { onMounted } from 'vue'
+import { useClipboard } from '@vueuse/core'
 
 const props = withDefaults(
   defineProps<{
@@ -95,6 +108,8 @@ const props = withDefaults(
   { theme: 'light', language: 'txt' }
 )
 
+const { copy, copied } = useClipboard({ source: props.code })
+
 onMounted(async () => {
   if (props.theme === 'light') {
     await import('./prism-one-light.css')
@@ -114,11 +129,6 @@ onMounted(async () => {
 
   box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
-
-  & *::selection {
-    background: #b8e7c5;
-    color: #000;
-  }
 
   & > *::-webkit-scrollbar {
     height: 8px;
@@ -158,18 +168,35 @@ onMounted(async () => {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+
+    &::selection {
+      background: #b8e7c5;
+      color: #000;
+    }
   }
 
   div.copy {
-    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
-    cursor: pointer;
     position: relative;
     transition: 0.1s;
 
-    border-radius: 10%;
-
     white-space: nowrap;
+
+    span {
+      font-size: 0.75rem;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    svg {
+      cursor: pointer;
+      padding: 0.25rem;
+      border-radius: 0.125rem;
+      transition: all 0.1s;
+    }
   }
 }
 
