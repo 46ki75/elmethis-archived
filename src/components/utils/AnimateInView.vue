@@ -1,5 +1,5 @@
 <template>
-  <div ref="observerElement" style="display: inline-flex">
+  <div ref="observerElement" style="display: inline">
     <div :key="renderKey" style="display: inline">
       <slot></slot>
     </div>
