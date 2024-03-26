@@ -45,13 +45,13 @@
     <Heading2
       v-else-if="dom.type === 'heading_1'"
       :content="dom.rich_text.map((text) => text.text).join('')"
-      margin="2.5rem"
+      margin="1.5rem"
     />
 
     <Heading3
       v-else-if="dom.type === 'heading_2'"
       :content="dom.rich_text.map((text) => text.text).join('')"
-      margin="2.5rem"
+      margin="1.5rem"
     />
 
     <h3 v-else-if="dom.type === 'heading_3'" style="margin-bottom: 2rem">

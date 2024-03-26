@@ -85,7 +85,6 @@ defineProps<{
 }
 
 .img {
-  max-height: 240px;
   border-radius: 0.25rem 0.25rem 0 0;
 
   @media (min-width: 768px) {
