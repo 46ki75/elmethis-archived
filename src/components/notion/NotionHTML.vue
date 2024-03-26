@@ -1,7 +1,30 @@
 <template>
   <div v-for="dom in domjson">
+    <component
+      v-if="
+        dom.type === 'breadcrumb' ||
+        dom.type === 'bulleted_list_item' ||
+        dom.type === 'child_database' ||
+        dom.type === 'child_page' ||
+        dom.type === 'column' ||
+        dom.type === 'column_list' ||
+        dom.type === 'embed' ||
+        dom.type === 'equation' ||
+        dom.type === 'file' ||
+        dom.type === 'link_preview' ||
+        dom.type === 'mention' ||
+        dom.type === 'numbered_list_item' ||
+        dom.type === 'pdf' ||
+        dom.type === 'root' ||
+        dom.type === 'table_of_contents' ||
+        dom.type === 'table_row' ||
+        dom.type === 'video'
+      "
+      :is=""
+    />
+
     <BookmarkCard
-      v-if="dom.type === 'bookmark'"
+      v-else-if="dom.type === 'bookmark'"
       :url="dom.url ?? ''"
       :image="dom.bookmark?.image"
       :title="dom.bookmark?.title ?? dom.url ?? ''"
@@ -98,10 +121,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(rows, index) in dom.table">
-          <th v-if="index !== 0" v-for="row in rows">
+        <tr v-for="rows in dom.table?.slice(1)">
+          <td v-for="row in rows">
             <NotionRichText :rich-text="row" />
-          </th>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -109,13 +132,13 @@
     <Checkbox
       v-else-if="dom.type === 'to_do'"
       :label="dom.rich_text.map((text) => text.text).join('')"
-      margin="1.0rem"
+      margin="1.25rem"
     />
 
     <Toggle
       v-else-if="dom.type === 'toggle'"
       :summary="dom.rich_text.map((text) => text.text).join('')"
-      margin="1rem"
+      margin="0rem"
     >
       <NotionHTML :domjson="dom.children" />
     </Toggle>
@@ -202,14 +225,17 @@ p {
 table {
   width: fit-content;
   max-width: 100%;
-  display: block;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  border-collapse: collapse;
   margin-bottom: 2rem;
+  overflow-x: auto;
+
   font-size: 0.9em;
   font-family: sans-serif;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+
+  display: block;
+  scrollbar-width: thin;
+  border-collapse: collapse;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+  border-radius: 0.125rem;
 
   * {
     transition: all 0.2s;
@@ -221,7 +247,7 @@ table {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgb(138, 148, 191, 0.8);
+    background-color: rgba(138, 191, 162, 0.8);
     border-radius: 3px;
     opacity: 0.6;
   }
@@ -272,7 +298,7 @@ table {
   }
 
   tbody tr:hover {
-    background-color: #e7eef6;
+    background-color: #e7f6ea;
   }
 }
 
