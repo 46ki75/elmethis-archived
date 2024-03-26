@@ -85,10 +85,12 @@ defineProps<{
 }
 
 .img {
+  max-height: 240px;
   border-radius: 0.25rem 0.25rem 0 0;
 
   @media (min-width: 768px) {
-    width: 30%;
+    max-height: 150px;
+    max-width: 30%;
     border-radius: 0.25rem 0 0 0.25rem;
   }
 }
