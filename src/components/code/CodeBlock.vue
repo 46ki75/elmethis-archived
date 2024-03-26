@@ -240,9 +240,15 @@ onMounted(async () => {
   }
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Courier%20Prime');
 .code {
   margin: 0;
   animation: fade 0.2s both;
   border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.code,
+.code * {
+  font-family: 'Courier Prime', monospace;
 }
 </style>

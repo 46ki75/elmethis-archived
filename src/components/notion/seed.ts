@@ -209,7 +209,7 @@ export const seed = [
         strikethrough: false,
         underline: false,
         code: false,
-        color: 'default',
+        color: 'blue',
         link: null
       },
       {
@@ -249,7 +249,7 @@ export const seed = [
         strikethrough: false,
         underline: false,
         code: false,
-        color: 'default',
+        color: 'red',
         link: null
       },
       {
@@ -283,7 +283,7 @@ export const seed = [
     rich_text: [],
     caption: [],
     children: [],
-    url: 'https://prod-files-secure.s3.us-west-2.amazonaws.com/81a75787-a812-4e6c-ac7f-03fa8025f38b/817dc8bf-0a19-42e0-a43c-b791a4fd23ab/image_%282%29.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240324%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240324T140825Z&X-Amz-Expires=3600&X-Amz-Signature=709730abf126e85a6c686735be2c6ab07f730d3aff34f9f002645c2c06ddd0bf&X-Amz-SignedHeaders=host&x-id=GetObject'
+    url: '/sample.webp'
   },
   {
     type: 'heading_2',

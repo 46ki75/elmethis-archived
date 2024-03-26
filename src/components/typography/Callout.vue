@@ -18,6 +18,9 @@
         <div :style="{ color: colors[color][900] }">{{ title }}</div>
       </div>
 
+      <div v-if="title == null">
+        <InfoIcon :size="20" :color="colors[color][900]" />
+      </div>
       <div :style="{ paddingLeft: title != null ? '2rem' : 0, opacity: 0.9 }">
         <slot></slot>
       </div></div
