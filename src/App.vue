@@ -1,15 +1,13 @@
 <template>
   <div>
-    {{ isChecked }}
-    <Checkbox v-model:isChecked="isChecked" label="Checkbox" />
+    <Callout title="a" color="amber">
+      <div>Heyaaaaaaaaaaaa</div>
+    </Callout>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import Checkbox from './components/form/Checkbox.vue'
-
-const isChecked = ref(false)
+import Callout from './components/typography/Callout.vue'
 </script>
 
 <style lang="scss" scoped></style>
