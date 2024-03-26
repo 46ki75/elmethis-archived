@@ -7,7 +7,7 @@
   >
     {{ text }}
     <svg
-      v-if="external != null && external"
+      v-if="external"
       class="blink"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
@@ -20,7 +20,7 @@
       />
     </svg>
     <svg
-      v-if="external == null || !external"
+      v-if="!external"
       class="blink"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 192 512"
@@ -36,7 +36,9 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue'
+
+const props = defineProps<{
   /**
    * **required!**
    *
@@ -49,15 +51,12 @@ defineProps<{
    * The URL of the destination after clicking.
    */
   href: string
-  /**
-   * **optional?**
-   *
-   * When set to true, this prevents sending referrer information and opens in a new tab.
-   * When this value is null, it automatically determines whether it is an internal or external link. However,
-   * by setting this value, you can also force external links to be treated as internal links.
-   */
-  external?: boolean
 }>()
+
+const external = computed(() => {
+  const link = new URL(props.href, window.location.origin)
+  return link.hostname !== window.location.hostname
+})
 </script>
 
 <style scoped lang="scss">
