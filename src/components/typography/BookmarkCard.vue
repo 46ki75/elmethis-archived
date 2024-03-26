@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav :style="{ marginBottom: margin ?? 0 }">
     <a class="wrapper" :href="url" target="_blank" rel="noreferrer noopener">
       <img class="img" :src="image" alt="OGP Image" />
       <div class="typography-container">
@@ -51,9 +51,12 @@ defineProps<{
    */
   image?: string
   /**
-   * Whether it is currently loading or not.
-   * A fallback is displayed on the caption and code parts while loading.
+   * **optional?**
+   *
+   * This is the margin on the bottom side of the element.
+   * If not specified, it defaults to 0.
    */
+  margin?: string
 }>()
 </script>
 

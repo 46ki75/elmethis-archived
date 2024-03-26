@@ -407,6 +407,41 @@ export const seed = [
       }
     ]
   },
+  {
+    type: 'toggle',
+    rich_text: [
+      {
+        text: 'Reactのコミュニティ',
+        bold: false,
+        italic: false,
+        strikethrough: false,
+        underline: false,
+        code: false,
+        color: 'default',
+        link: null
+      }
+    ],
+    caption: [],
+    children: [
+      {
+        type: 'paragraph',
+        rich_text: [
+          {
+            text: 'Reactは活発なコミュニティを持っています。問題を解決するための助けを求めたり、新しいアイデアを共有したりすることが可能です。また、開発者としてスキルを磨くための機会もたくさんあります。',
+            bold: false,
+            italic: false,
+            strikethrough: false,
+            underline: false,
+            code: false,
+            color: 'default',
+            link: null
+          }
+        ],
+        caption: [],
+        children: []
+      }
+    ]
+  },
   { type: 'divider', rich_text: [], caption: [], children: [] },
   {
     type: 'heading_2',
@@ -894,94 +929,6 @@ export const seed = [
         caption: [],
         children: [],
         language: 'bash'
-      }
-    ]
-  },
-  {
-    type: 'toggle',
-    rich_text: [
-      {
-        text: 'Reactの学習リソース',
-        bold: false,
-        italic: false,
-        strikethrough: false,
-        underline: false,
-        code: false,
-        color: 'default',
-        link: null
-      }
-    ],
-    caption: [],
-    children: [
-      {
-        type: 'paragraph',
-        rich_text: [
-          {
-            text: 'Reactを学習するためのリソースはインターネット上に数多く存在します。公式ドキュメンテーションは詳細で初心者向けの情報が豊富です。また、様々なチュートリアルやブログ、ビデオ教材も利用可能です。',
-            bold: false,
-            italic: false,
-            strikethrough: false,
-            underline: false,
-            code: false,
-            color: 'default',
-            link: null
-          }
-        ],
-        caption: [],
-        children: []
-      },
-      {
-        type: 'callout',
-        rich_text: [
-          {
-            text: 'sadffffffffffffffffffffffff',
-            bold: false,
-            italic: false,
-            strikethrough: false,
-            underline: false,
-            code: false,
-            color: 'default',
-            link: null
-          }
-        ],
-        caption: [],
-        children: [],
-        color: 'blue_background'
-      }
-    ]
-  },
-  {
-    type: 'toggle',
-    rich_text: [
-      {
-        text: 'Reactのコミュニティ',
-        bold: false,
-        italic: false,
-        strikethrough: false,
-        underline: false,
-        code: false,
-        color: 'default',
-        link: null
-      }
-    ],
-    caption: [],
-    children: [
-      {
-        type: 'paragraph',
-        rich_text: [
-          {
-            text: 'Reactは活発なコミュニティを持っています。問題を解決するための助けを求めたり、新しいアイデアを共有したりすることが可能です。また、開発者としてスキルを磨くための機会もたくさんあります。',
-            bold: false,
-            italic: false,
-            strikethrough: false,
-            underline: false,
-            code: false,
-            color: 'default',
-            link: null
-          }
-        ],
-        caption: [],
-        children: []
       }
     ]
   },
@@ -1507,5 +1454,58 @@ export const seed = [
       image: 'https://avatars.githubusercontent.com/u/85323087?v=4?s=400'
     }
   },
-  { type: 'paragraph', rich_text: [], caption: [], children: [] }
+  { type: 'paragraph', rich_text: [], caption: [], children: [] },
+  {
+    type: 'toggle',
+    rich_text: [
+      {
+        text: 'Reactの学習リソース',
+        bold: false,
+        italic: false,
+        strikethrough: false,
+        underline: false,
+        code: false,
+        color: 'default',
+        link: null
+      }
+    ],
+    caption: [],
+    children: [
+      {
+        type: 'paragraph',
+        rich_text: [
+          {
+            text: 'Reactを学習するためのリソースはインターネット上に数多く存在します。公式ドキュメンテーションは詳細で初心者向けの情報が豊富です。また、様々なチュートリアルやブログ、ビデオ教材も利用可能です。',
+            bold: false,
+            italic: false,
+            strikethrough: false,
+            underline: false,
+            code: false,
+            color: 'default',
+            link: null
+          }
+        ],
+        caption: [],
+        children: []
+      },
+      {
+        type: 'callout',
+        rich_text: [
+          {
+            text: 'sadffffffffffffffffffffffff',
+            bold: false,
+            italic: false,
+            strikethrough: false,
+            underline: false,
+            code: false,
+            color: 'default',
+            link: null
+          }
+        ],
+        caption: [],
+        children: [],
+        color: 'blue_background'
+      }
+    ]
+  }
 ]

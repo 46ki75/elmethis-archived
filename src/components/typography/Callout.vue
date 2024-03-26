@@ -3,6 +3,7 @@
     <div
       class="container"
       :style="{
+        marginBottom: margin ?? 0,
         background: `linear-gradient(
             to left,
             rgba(0, 0, 0, 0) 0% 50%,
@@ -36,6 +37,13 @@ withDefaults(
   defineProps<{
     color?: keyof typeof colors
     title?: string
+    /**
+     * **optional?**
+     *
+     * This is the margin on the bottom side of the element.
+     * If not specified, it defaults to 0.
+     */
+    margin?: string
   }>(),
   { color: 'slate' }
 )

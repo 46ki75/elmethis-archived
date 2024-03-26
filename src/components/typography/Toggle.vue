@@ -43,6 +43,7 @@
   <div
     class="children"
     :style="{
+      marginBottom: margin ?? 0,
       transition: `all 0.2s ${isOpen ? '0s' : '0.2s'}`,
       transform: `scaleY(${isOpen ? 1 : 0})`,
       height: `${isOpen ? '100%' : 0}`
@@ -59,7 +60,11 @@
   </div>
   <div
     class="fold"
-    :style="{ opacity: isOpen ? 0.7 : 0 }"
+    :style="{
+      opacity: isOpen ? 0.7 : 0,
+      transition: `all 0.2s ${isOpen ? '0s' : '0.2s'}`,
+      height: `${isOpen ? '100%' : 0}`
+    }"
     @click="setIsOpen(false)"
   >
     <svg
@@ -92,6 +97,13 @@ defineProps<{
    * It is always visible, whether the tab is collapsed or not.
    */
   summary: string
+  /**
+   * **optional?**
+   *
+   * This is the margin on the bottom side of the element.
+   * If not specified, it defaults to 0.
+   */
+  margin?: string
 }>()
 </script>
 

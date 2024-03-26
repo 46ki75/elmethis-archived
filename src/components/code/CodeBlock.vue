@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" :style="{ marginBottom: margin ?? 0 }">
     <div
       class="header"
       :style="{
@@ -81,6 +81,8 @@
 <script setup lang="ts">
 import Prism from 'prismjs'
 import 'prismjs/components/prism-rust'
+import 'prismjs/components/prism-bash'
+import 'prismjs/components/prism-hcl'
 import { onMounted } from 'vue'
 import { useClipboard } from '@vueuse/core'
 
@@ -104,6 +106,13 @@ const props = withDefaults(
      * Light theme / Dark theme.
      */
     theme?: 'light' | 'dark'
+    /**
+     * **optional?**
+     *
+     * This is the margin on the bottom side of the element.
+     * If not specified, it defaults to 0.
+     */
+    margin?: string
   }>(),
   { theme: 'light', language: 'txt' }
 )

@@ -4,6 +4,7 @@
     class="image"
     :src="base64ImageURI"
     :alt="alt"
+    :style="{ marginBottom: margin ?? 0 }"
     @click="() => (isModalShown = true)"
   />
 
@@ -40,6 +41,13 @@ const props = withDefaults(
   defineProps<{
     src: string
     alt?: string
+    /**
+     * **optional?**
+     *
+     * This is the margin on the bottom side of the element.
+     * If not specified, it defaults to 0.
+     */
+    margin?: string
   }>(),
   { alt: '' }
 )

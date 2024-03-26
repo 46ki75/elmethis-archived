@@ -15,17 +15,25 @@
     <div class="under">
       <div></div>
     </div>
-    <FragmentIdentifier :content="content" />
+    <FragmentIdentifier :content="content" :margin="margin" />
   </AnimateInView>
 </template>
 
 <script setup lang="ts">
 import AnimateInView from '../utils/AnimateInView.vue'
+import FragmentIdentifier from './FragmentIdentifier.vue'
 
 withDefaults(
   defineProps<{
     content: string
     size?: number | string
+    /**
+     * **optional?**
+     *
+     * This is the margin on the bottom side of the element.
+     * If not specified, it defaults to 0.
+     */
+    margin?: string
   }>(),
   { size: '1.375rem' }
 )

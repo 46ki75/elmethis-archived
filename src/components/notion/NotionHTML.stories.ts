@@ -6,7 +6,7 @@ import { type DOMJSON } from 'notion-markup-utils/dist/block/DOMJSON'
 
 const meta: Meta<typeof NotionHTML> = {
   component: NotionHTML,
-  title: 'Notion/NotionRawHTML',
+  title: 'Notion/NotionHTML',
   tags: ['autodocs'],
   argTypes: {}
 }

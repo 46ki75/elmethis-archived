@@ -7,7 +7,7 @@
         >{{ content }}</span
       >
     </h2>
-    <FragmentIdentifier :content="content" />
+    <FragmentIdentifier :content="content" :margin="margin" />
   </AnimateInView>
 </template>
 
@@ -19,6 +19,13 @@ withDefaults(
   defineProps<{
     content: string
     size?: number | string
+    /**
+     * **optional?**
+     *
+     * This is the margin on the bottom side of the element.
+     * If not specified, it defaults to 0.
+     */
+    margin?: string
   }>(),
   { size: '1.375rem' }
 )

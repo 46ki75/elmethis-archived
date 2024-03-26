@@ -1,7 +1,7 @@
 <template>
   <AnimateInView>
     <hr :style="{ opacity: 0, height: 1, margin: 0, padding: 0 }" />
-    <div class="wrapper">
+    <div class="wrapper" :style="{ marginBottom: margin ?? 0 }">
       <div class="dot"></div>
       <div class="line"></div>
 
@@ -20,6 +20,13 @@ import AnimateInView from '../utils/AnimateInView.vue'
 
 defineProps<{
   text?: string
+  /**
+   * **optional?**
+   *
+   * This is the margin on the bottom side of the element.
+   * If not specified, it defaults to 0.
+   */
+  margin?: string
 }>()
 </script>
 

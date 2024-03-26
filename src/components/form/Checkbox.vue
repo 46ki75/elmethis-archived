@@ -1,5 +1,9 @@
 <template>
-  <div class="container" @click="toggleCheck">
+  <div
+    class="container"
+    :style="{ marginBlock: margin ?? 0 }"
+    @click="toggleCheck"
+  >
     <div
       :style="{
         cursor: 'pointer',
@@ -136,6 +140,13 @@ withDefaults(
      * Setting to true disables it.
      */
     isDisable?: boolean
+    /**
+     * **optional?**
+     *
+     * This is the margin on the bottom side of the element.
+     * If not specified, it defaults to 0.
+     */
+    margin?: string
   }>(),
   {
     color: 'rgba(0,0,0,0.8)',

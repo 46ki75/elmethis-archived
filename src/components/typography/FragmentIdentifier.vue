@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" :style="{ marginBottom: margin ?? 0 }">
     <span :style="{ opacity: isVisible ? 1 : 0 }" class="message">
       A link with a fragment identifier has been copied.
     </span>
@@ -39,6 +39,13 @@ const props = defineProps<{
    * it becomes `https://example.com/path/to/page#Heading`.
    */
   content: string
+  /**
+   * **optional?**
+   *
+   * This is the margin on the bottom side of the element.
+   * If not specified, it defaults to 0.
+   */
+  margin?: string
 }>()
 
 const isVisible = ref<boolean>(false)
