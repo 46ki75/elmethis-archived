@@ -91,6 +91,8 @@ defineProps<{
 }
 
 .typography-container {
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -115,8 +117,8 @@ defineProps<{
 }
 
 .url {
-  width: 80%;
-  padding-left: 20%;
+  box-sizing: border-box;
+  width: 100%;
   text-align: right;
 
   font-size: 0.75rem;
