@@ -75,7 +75,7 @@ const wrapElement = (dom: RichTextDOMJSON): VNode => {
 
 <style scoped lang="scss">
 span code {
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 0 0.25rem;
   margin: 0 0.25rem;
   border-radius: 0.125rem;
