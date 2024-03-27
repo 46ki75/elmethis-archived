@@ -1,10 +1,31 @@
 {
   "name": "elmethis",
-  "private": false,
-  "version": "0.0.0",
+  "version": "0.0.11",
   "type": "module",
   "engines": {
     "node": "20"
+  },
+  "author": "Chomolungma Shirayuki",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:46ki75/elmethis.git"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/components/"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
   },
   "scripts": {
     "dev": "vite",
@@ -14,7 +35,8 @@
     "build-storybook": "storybook build",
     "prepare": "husky install",
     "format": "prettier --write .",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepublishOnly": "npm run build"
   },
   "prettier": "prettier-config-standard",
   "dependencies": {
@@ -51,6 +73,7 @@
     "storybook": "^8.0.4",
     "typescript": "^5.4.3",
     "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.7.3",
     "vue-tsc": "^2.0.6"
   }
 }

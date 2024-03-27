@@ -2,7 +2,10 @@
   <AnimateInView>
     <h1
       class="h1"
-      :style="{ fontSize: typeof size === 'string' ? size : size + 'px' }"
+      :style="{
+        fontSize: typeof size === 'string' ? size : size + 'px',
+        marginBottom: margin ?? 0
+      }"
       :id="content"
     >
       <span class="text">{{ content }}</span>
@@ -17,6 +20,13 @@ withDefaults(
   defineProps<{
     content: string
     size?: number | string
+    /**
+     * **optional?**
+     *
+     * This is the margin on the bottom side of the element.
+     * If not specified, it defaults to 0.
+     */
+    margin?: string
   }>(),
   { size: '1.5rem' }
 )
@@ -27,7 +37,6 @@ withDefaults(
   font-family: sans-serif;
   position: relative;
   display: block;
-  margin: 0.5rem auto;
   padding: 0.3em 0.3em 0.3em 0.8em;
   border-width: 1px;
   border-style: solid;
