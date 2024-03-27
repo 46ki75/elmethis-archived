@@ -1,17 +1,19 @@
 <template>
+  <div v-if="base64ImageURI === null" class="loading">
+    <div>
+      <GridLoadingIcon :size="32" />
+      <span>LOADING</span>
+    </div>
+  </div>
+
   <img
-    v-if="typeof base64ImageURI === 'string'"
+    v-else-if="typeof base64ImageURI === 'string'"
     class="image"
     :src="base64ImageURI"
     :alt="alt"
     :style="{ marginBottom: margin ?? 0 }"
     @click="() => (isModalShown = true)"
   />
-
-  <div v-if="base64ImageURI === null" class="loading">
-    <GridLoadingIcon :size="32" />
-    <span>LOADING</span>
-  </div>
 
   <Teleport to="body">
     <div
@@ -90,7 +92,7 @@ watch(escape, (isKeyDown) => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -111,11 +113,19 @@ watch(escape, (isKeyDown) => {
 }
 
 .loading {
+  display: grid;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
+
+  div {
+    aspect-ratio: 1200 / 630;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    border: solid 1px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .modal {
