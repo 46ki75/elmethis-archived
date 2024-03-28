@@ -20,7 +20,6 @@
       class="modal"
       :style="{
         background: `rgba(0, 0, 0, ${isModalShown ? 0.6 : 0})`,
-        backdropFilter: `blur(${isModalShown ? '0.125rem' : '0rem'})`,
         pointerEvents: isModalShown ? 'all' : 'none'
       }"
       @click="() => (isModalShown = false)"
