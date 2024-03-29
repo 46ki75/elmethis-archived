@@ -31,6 +31,7 @@ import FragmentIdentifier from './components/typography/FragmentIdentifier.vue'
 import Heading1 from './components/typography/Heading1.vue'
 import Heading2 from './components/typography/Heading2.vue'
 import Heading3 from './components/typography/Heading3.vue'
+import ImageWithFallback from './components/typography/ImageWithModal.vue'
 import ImageWithModal from './components/typography/ImageWithModal.vue'
 import Linktext from './components/typography/Linktext.vue'
 import Toggle from './components/typography/Toggle.vue'
@@ -42,6 +43,7 @@ export {
   Heading1,
   Heading2,
   Heading3,
+  ImageWithFallback,
   ImageWithModal,
   Linktext,
   Toggle
