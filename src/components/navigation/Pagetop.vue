@@ -120,17 +120,19 @@ watch(scrollTop, (newOffset) => {
     top: 0;
     height: 100%;
     width: 51%;
-    background: rgba(15, 79, 116, 0.8);
+    background: rgb(31, 89, 122);
   }
 
   &:before {
-    left: -0.5px;
+    border-radius: 0 0 3px 0;
+    left: 0px;
     transform: skew(0deg, 30deg);
   }
 
   &:after {
-    right: -0.5px;
-    width: 50%;
+    border-radius: 0 0 0 3px;
+    right: 0px;
+    width: 51%;
     transform: skew(0deg, -30deg);
   }
 }
