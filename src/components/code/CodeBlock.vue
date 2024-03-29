@@ -214,12 +214,14 @@ onMounted(async () => {
 }
 
 .hover-light {
+  box-sizing: content-box;
   &:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
 }
 
 .hover-dark {
+  box-sizing: content-box;
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
