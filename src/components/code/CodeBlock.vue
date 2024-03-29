@@ -41,8 +41,8 @@
         >
         <svg
           :class="theme === 'light' ? 'hover-light' : 'hover-dark'"
-          width="16"
-          height="16"
+          width="24"
+          height="24"
           viewBox="0 0 384 512"
         >
           <path
@@ -143,6 +143,10 @@ onMounted(async () => {
   box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
 
+  * {
+    box-sizing: border-box;
+  }
+
   & > *::-webkit-scrollbar {
     height: 8px;
     width: 8px;
@@ -214,14 +218,12 @@ onMounted(async () => {
 }
 
 .hover-light {
-  box-sizing: content-box;
   &:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
 }
 
 .hover-dark {
-  box-sizing: content-box;
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
