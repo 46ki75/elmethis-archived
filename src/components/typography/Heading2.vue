@@ -84,7 +84,6 @@ withDefaults(
 .text {
   display: inline-block;
   position: relative;
-  /* font-size: ${typeof size === 'string' ? size : size + 'px'}; */
   font-family: sans-serif;
   color: rgba(255, 255, 255, 0.9);
 
@@ -102,7 +101,7 @@ withDefaults(
   background-size: 300% 100%;
 
   animation-name: in;
-  animation-duration: 0.6s;
+  animation-duration: 0.4s;
   animation-direction: reverse;
 
   &::after {
