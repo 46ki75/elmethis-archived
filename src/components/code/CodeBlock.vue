@@ -1,5 +1,8 @@
 <template>
-  <div class="container" :style="{ marginBottom: margin ?? 0 }">
+  <div
+    :class="`elmethis-codeblock-container elmethis-codeblock-container-${theme}`"
+    :style="{ marginBottom: margin ?? 0 }"
+  >
     <div
       class="header"
       :style="{
@@ -130,7 +133,8 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
-.container {
+.elmethis-codeblock-container-light,
+.elmethis-codeblock-container-dark {
   display: flex;
   flex-direction: column;
   gap: 0;
