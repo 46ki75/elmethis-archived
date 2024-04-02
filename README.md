@@ -1,5 +1,6 @@
-![](https://github.com/46ki75/elmethis/actions/workflows/ut.yml/badge.svg)
-![](https://github.com/46ki75/elmethis/actions/workflows/build.yml/badge.svg)
+![Unit Test](https://github.com/46ki75/elmethis/actions/workflows/ut.yml/badge.svg)
+![Static Build](https://github.com/46ki75/elmethis/actions/workflows/build.yml/badge.svg)
+![npm](https://img.shields.io/npm/v/elmethis.svg)
 
 # Vue 3 + TypeScript + Vite
 
