@@ -1,6 +1,6 @@
 {
   "name": "elmethis",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "type": "module",
   "engines": {
     "node": "20"
@@ -52,6 +52,7 @@
     "@storybook/addon-essentials": "^8.0.5",
     "@storybook/addon-interactions": "^8.0.5",
     "@storybook/addon-links": "^8.0.5",
+    "@storybook/addon-toolbars": "^8.0.8",
     "@storybook/blocks": "^8.0.5",
     "@storybook/test": "^8.0.5",
     "@storybook/vue3": "^8.0.5",

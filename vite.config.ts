@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 import * as path from 'path'
 import dts from 'vite-plugin-dts'
+import sass from 'sass'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -27,6 +28,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {}
     }
   }
 })
