@@ -28,3 +28,9 @@ export const Huge: Story = {
     src: 'https://images.unsplash.com/photo-1556983703-27576e5afa24?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb'
   }
 }
+
+export const NotFound: Story = {
+  args: {
+    src: 'asdf'
+  }
+}

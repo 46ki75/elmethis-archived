@@ -56,18 +56,29 @@ const base64ImageURI = ref<string | null>(null)
 
 const fetchImage = async (src: string): Promise<void> => {
   const response = await fetch(src)
-  const blob = await response.blob()
 
-  const reader = new FileReader()
-  reader.readAsDataURL(blob)
-  reader.onloadend = function () {
-    const base64data = reader.result
+  if (response.status === 200) {
+    const blob = await response.blob()
+    const reader = new FileReader()
+    reader.readAsDataURL(blob)
 
-    if (typeof base64data === 'string') {
-      base64ImageURI.value = base64data
-    } else {
-      base64ImageURI.value = null
+    reader.onloadend = () => {
+      const base64data = reader.result
+      base64ImageURI.value = String(base64data)
     }
+  } else {
+    const response = await fetch('/noimage.webp')
+
+    const blob = await response.blob()
+    const reader = new FileReader()
+    reader.readAsDataURL(blob)
+
+    reader.onloadend = () => {
+      const base64data = reader.result
+      base64ImageURI.value = String(base64data)
+    }
+
+    base64ImageURI.value = null
   }
 }
 
