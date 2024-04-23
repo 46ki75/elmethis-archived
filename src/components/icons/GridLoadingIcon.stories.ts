@@ -34,3 +34,9 @@ export const Large: Story = {
     size: 128
   }
 }
+
+export const Colored: Story = {
+  args: {
+    color: 'darkgreen'
+  }
+}

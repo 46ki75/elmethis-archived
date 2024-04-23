@@ -87,7 +87,14 @@
               : 'rgba(255, 255, 255, 0.8)'
         }"
       >
-        <GridLoadingIcon :size="32" /><span>LOADING</span>
+        <GridLoadingIcon
+          :size="32"
+          :color="
+            theme === 'light'
+              ? 'rgba(0, 0, 0, 0.8)'
+              : 'rgba(255, 255, 255, 0.8)'
+          "
+        /><span>LOADING</span>
       </div>
       <pre
         v-else
@@ -100,50 +107,13 @@
 <script setup lang="ts">
 import Prism from 'prismjs'
 
-import 'prismjs/components/prism-abap'
-import 'prismjs/components/prism-agda'
-// import 'prismjs/components/prism-arduino'
-// asm
-import 'prismjs/components/prism-bash'
-import 'prismjs/components/prism-basic'
-import 'prismjs/components/prism-bnf'
-import 'prismjs/components/prism-c'
-import 'prismjs/components/prism-csharp'
-import 'prismjs/components/prism-cpp'
-import 'prismjs/components/prism-clojure'
-import 'prismjs/components/prism-coffeescript'
-import 'prismjs/components/prism-coq'
-import 'prismjs/components/prism-css'
-import 'prismjs/components/prism-dart'
-import 'prismjs/components/prism-dhall'
-import 'prismjs/components/prism-diff'
-import 'prismjs/components/prism-ebnf'
-import 'prismjs/components/prism-elixir'
-import 'prismjs/components/prism-elm'
-import 'prismjs/components/prism-erlang'
-import 'prismjs/components/prism-fsharp'
-
-import 'prismjs/components/prism-json'
-import 'prismjs/components/prism-yaml'
-import 'prismjs/components/prism-toml'
-import 'prismjs/components/prism-xml-doc'
-import 'prismjs/components/prism-makefile'
-import 'prismjs/components/prism-markdown'
-import 'prismjs/components/prism-mermaid'
-import 'prismjs/components/prism-markup'
-
-import 'prismjs/components/prism-java'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-typescript'
-import 'prismjs/components/prism-kotlin'
-import 'prismjs/components/prism-go'
-import 'prismjs/components/prism-python'
-import 'prismjs/components/prism-rust'
-import 'prismjs/components/prism-hcl'
-
 import { onMounted, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
 import GridLoadingIcon from '../icons/GridLoadingIcon.vue'
+
+declare module 'prismjs/components/prism-rust' {
+  export function highlightAll(): void
+}
 
 const props = withDefaults(
   defineProps<{
@@ -180,19 +150,56 @@ const { copy, copied } = useClipboard({ source: props.code })
 const isLoading = ref(true)
 
 onMounted(async () => {
+  isLoading.value = true
   if (props.theme === 'light') {
-    isLoading.value = true
     await import('./prism-one-light.scss')
   } else {
-    isLoading.value = true
     await import('./prism-one-dark.scss')
   }
 
+  await import('prismjs/components/prism-abap')
+  await import('prismjs/components/prism-agda')
+  await import('prismjs/components/prism-bash')
+  await import('prismjs/components/prism-basic')
+  await import('prismjs/components/prism-bnf')
+  await import('prismjs/components/prism-c')
+  await import('prismjs/components/prism-csharp')
+  await import('prismjs/components/prism-cpp')
+  await import('prismjs/components/prism-clojure')
+  await import('prismjs/components/prism-coffeescript')
+  await import('prismjs/components/prism-coq')
+  await import('prismjs/components/prism-css')
+  await import('prismjs/components/prism-dart')
+  await import('prismjs/components/prism-dhall')
+  await import('prismjs/components/prism-diff')
+  await import('prismjs/components/prism-ebnf')
+  await import('prismjs/components/prism-elixir')
+  await import('prismjs/components/prism-elm')
+  await import('prismjs/components/prism-erlang')
+  await import('prismjs/components/prism-fsharp')
+  await import('prismjs/components/prism-json')
+  await import('prismjs/components/prism-yaml')
+  await import('prismjs/components/prism-toml')
+  await import('prismjs/components/prism-xml-doc')
+  await import('prismjs/components/prism-makefile')
+  await import('prismjs/components/prism-markdown')
+  await import('prismjs/components/prism-mermaid')
+  await import('prismjs/components/prism-markup')
+  await import('prismjs/components/prism-java')
+  await import('prismjs/components/prism-javascript')
+  await import('prismjs/components/prism-typescript')
+  await import('prismjs/components/prism-kotlin')
+  await import('prismjs/components/prism-go')
+  await import('prismjs/components/prism-python')
+  await import('prismjs/components/prism-rust')
+  await import('prismjs/components/prism-hcl')
+
   isLoading.value = false
+
   const timerID = setTimeout(() => {
     Prism.highlightAll()
     clearTimeout(timerID)
-  }, 10)
+  }, 0)
 })
 </script>
 

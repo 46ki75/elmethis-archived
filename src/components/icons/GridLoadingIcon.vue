@@ -12,7 +12,7 @@
       height="20"
       x="10"
       y="10"
-      fill="black"
+      :fill="color"
       stroke="transparent"
     />
 
@@ -23,7 +23,7 @@
       height="20"
       x="40"
       y="10"
-      fill="black"
+      :fill="color"
       stroke="transparent"
     />
 
@@ -34,7 +34,7 @@
       height="20"
       x="70"
       y="10"
-      fill="black"
+      :fill="color"
       stroke="transparent"
     />
 
@@ -45,7 +45,7 @@
       height="20"
       x="10"
       y="40"
-      fill="black"
+      :fill="color"
       stroke="transparent"
     />
 
@@ -54,7 +54,7 @@
       height="20"
       x="40"
       y="40"
-      fill="black"
+      :fill="color"
       stroke="transparent"
     />
 
@@ -65,7 +65,7 @@
       height="20"
       x="70"
       y="40"
-      fill="black"
+      :fill="color"
       stroke="transparent"
     />
 
@@ -76,7 +76,7 @@
       height="20"
       x="10"
       y="70"
-      fill="black"
+      :fill="color"
       stroke="transparent"
     />
 
@@ -87,7 +87,7 @@
       height="20"
       x="40"
       y="70"
-      fill="black"
+      :fill="color"
       stroke="transparent"
     />
 
@@ -98,7 +98,7 @@
       height="20"
       x="70"
       y="70"
-      fill="black"
+      :fill="color"
       stroke="transparent"
     />
   </svg>
@@ -113,8 +113,14 @@ withDefaults(
      * Size of the Icon.
      */
     size?: number
+    /**
+     * **optional?**
+     *
+     * Color of the Icon.
+     */
+    color?: string
   }>(),
-  { size: 64 }
+  { size: 64, color: 'black' }
 )
 </script>
 
