@@ -74,7 +74,23 @@
     </div>
 
     <div>
+      <div
+        v-if="isLoading"
+        class="fallback"
+        :style="{
+          background:
+            theme === 'light' ? 'rgb(250, 250, 250)' : 'rgb(40, 44, 52)',
+
+          color:
+            theme === 'light'
+              ? 'rgba(0, 0, 0, 0.8)'
+              : 'rgba(255, 255, 255, 0.8)'
+        }"
+      >
+        <GridLoadingIcon :size="32" /><span>LOADING</span>
+      </div>
       <pre
+        v-else
         class="code"
       ><code :class="`language-rust`">{{ code.trim() }}</code></pre>
     </div>
@@ -125,8 +141,9 @@ import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-rust'
 import 'prismjs/components/prism-hcl'
 
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
+import GridLoadingIcon from '../icons/GridLoadingIcon.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -160,14 +177,22 @@ const props = withDefaults(
 )
 
 const { copy, copied } = useClipboard({ source: props.code })
+const isLoading = ref(true)
 
 onMounted(async () => {
   if (props.theme === 'light') {
+    isLoading.value = true
     await import('./prism-one-light.scss')
   } else {
+    isLoading.value = true
     await import('./prism-one-dark.scss')
   }
-  Prism.highlightAll()
+
+  isLoading.value = false
+  const timerID = setTimeout(() => {
+    Prism.highlightAll()
+    clearTimeout(timerID)
+  }, 10)
 })
 </script>
 
@@ -306,5 +331,14 @@ onMounted(async () => {
 .code,
 .code * {
   font-family: 'Courier Prime', monospace;
+}
+
+.fallback {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 </style>
