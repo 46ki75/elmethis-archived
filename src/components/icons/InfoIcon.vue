@@ -11,20 +11,20 @@
         cy="50"
         r="45"
         fill="transparent"
-        stroke="black"
+        :stroke="color"
         strokeWidth="7"
         strokeDasharray="283"
         strokeDashoffset="283"
       />
 
-      <circle cx="50" cy="28" r="5" fill="black" />
+      <circle cx="50" cy="28" r="5" :fill="color" />
 
       <line
         x1="50"
         x2="50"
         y1="44"
         y2="80"
-        stroke="black"
+        :stroke="color"
         style="stroke-width: 0.4rem"
       />
     </svg>
@@ -42,8 +42,14 @@ withDefaults(
      * Size of the Icon.
      */
     size?: number
+    /**
+     * **optional?**
+     *
+     * Color of the Icon.
+     */
+    color?: string
   }>(),
-  { size: 64 }
+  { size: 64, color: 'black' }
 )
 </script>
 

@@ -11,11 +11,12 @@
         )`,
         backgroundSize: '200% 100%',
         flexDirection: title != null ? 'column' : 'row',
-        gap: title != null ? '0.5rem' : '0.75rem'
+        gap: title != null ? '0.5rem' : '0.75rem',
+        borderLeft: `solid 3px ${colors[color][700]}`
       }"
     >
       <div v-if="title != null" class="header">
-        <InfoIcon :size="20" />
+        <info-icon :size="20" :color="colors[color][900]" />
         <div :style="{ color: colors[color][900] }">{{ title }}</div>
       </div>
 
@@ -62,7 +63,7 @@ withDefaults(
 
 .container {
   padding: 1rem;
-  border-radius: 0.25rem;
+  border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;
 
   animation-name: in;
   animation-duration: 0.4s;
