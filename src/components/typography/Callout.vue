@@ -7,7 +7,7 @@
         background: `linear-gradient(
             to left,
             rgba(0, 0, 0, 0) 0% 50%,
-            ${colors[color][100]} 50% 100%
+            ${hexToRGBA(colors[color][200], 0.3)} 50% 100%
         )`,
         backgroundSize: '200% 100%',
         flexDirection: title != null ? 'column' : 'row',
@@ -16,14 +16,32 @@
       }"
     >
       <div v-if="title != null" class="header">
-        <info-icon :size="20" :color="colors[color][900]" />
-        <div :style="{ color: colors[color][900] }">{{ title }}</div>
+        <info-icon
+          :size="20"
+          :color="theme === 'dark' ? colors[color][100] : colors[color][900]"
+        />
+        <div
+          :style="{
+            color: theme === 'dark' ? colors[color][100] : colors[color][900]
+          }"
+        >
+          {{ title }}
+        </div>
       </div>
 
       <div v-if="title == null">
-        <InfoIcon :size="20" :color="colors[color][900]" />
+        <InfoIcon
+          :size="20"
+          :color="theme === 'dark' ? colors[color][900] : colors[color][100]"
+        />
       </div>
-      <div :style="{ paddingLeft: title != null ? '2rem' : 0, opacity: 0.9 }">
+      <div
+        :style="{
+          paddingLeft: title != null ? '2rem' : 0,
+          opacity: 0.9,
+          color: theme === 'dark' ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.8)'
+        }"
+      >
         <slot />
       </div>
     </div>
@@ -34,6 +52,13 @@
 import { colors } from '../../colors'
 import AnimateInView from '../utils/AnimateInView.vue'
 import InfoIcon from '../icons/InfoIcon.vue'
+
+function hexToRGBA(hex: string, opacity: number): string {
+  const alpha = Math.round(opacity * 255)
+    .toString(16)
+    .padStart(2, '0')
+  return `${hex}${alpha}`
+}
 
 withDefaults(
   defineProps<{
@@ -46,8 +71,12 @@ withDefaults(
      * If not specified, it defaults to 0.
      */
     margin?: string
+    /**
+     * Light theme / Dark theme.
+     */
+    theme?: 'light' | 'dark'
   }>(),
-  { color: 'slate' }
+  { color: 'slate', theme: 'light' }
 )
 </script>
 

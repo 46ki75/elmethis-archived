@@ -37,3 +37,12 @@ export const Primary: Story = {
     title: 'Title of Callout Block'
   }
 }
+
+export const Dark: Story = {
+  render: Template,
+  args: {
+    color: 'green',
+    title: 'Title of Callout Block',
+    theme: 'dark'
+  }
+}
