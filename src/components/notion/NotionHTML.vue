@@ -34,13 +34,13 @@
 
     <ul v-else-if="dom.type === 'ul'">
       <li v-for="li in dom.children">
-        <NotionRichText :rich-text="li.rich_text" />
+        <NotionRichText :rich-text="li.rich_text" :theme="theme" />
       </li>
     </ul>
 
     <ol v-else-if="dom.type === 'ol'">
       <li v-for="li in dom.children">
-        <NotionRichText :rich-text="li.rich_text" />
+        <NotionRichText :rich-text="li.rich_text" :theme="theme" />
       </li>
     </ol>
 
@@ -48,7 +48,7 @@
       v-else-if="dom.type === 'callout'"
       :color="convertCalloutColor(dom)"
       margin="2.5rem"
-      ><NotionRichText :rich-text="dom.rich_text"
+      ><NotionRichText :rich-text="dom.rich_text" :theme="theme"
     /></Callout>
 
     <CodeBlock
@@ -61,6 +61,7 @@
           : dom.language ?? 'code'
       "
       margin="2.5rem"
+      :theme="theme"
     />
 
     <Divider v-else-if="dom.type === 'divider'" margin="2.5rem" />
@@ -99,31 +100,32 @@
         border-left: solid 3px rgba(0, 0, 0, 0.3);
       "
     >
-      <NotionRichText :rich-text="dom.rich_text" />
-      <NotionHTML :domjson="dom.children" />
+      <NotionRichText :rich-text="dom.rich_text" :theme="theme" />
+      <NotionHTML :domjson="dom.children" :theme="theme" />
     </blockquote>
 
     <p v-else-if="dom.type === 'paragraph'">
-      <NotionRichText :rich-text="dom.rich_text" />
+      <NotionRichText :rich-text="dom.rich_text" :theme="theme" />
     </p>
 
     <NotionHTML
       v-else-if="dom.type === 'synced_block'"
       :domjson="dom.children"
+      :theme="theme"
     />
 
     <table v-else-if="dom.type === 'table'">
       <thead>
         <tr>
           <th v-for="row in dom.table?.[0]">
-            <NotionRichText :rich-text="row" />
+            <NotionRichText :rich-text="row" :theme="theme" />
           </th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="rows in dom.table?.slice(1)">
           <td v-for="row in rows">
-            <NotionRichText :rich-text="row" />
+            <NotionRichText :rich-text="row" :theme="theme" />
           </td>
         </tr>
       </tbody>
@@ -140,7 +142,7 @@
       :summary="dom.rich_text.map((text) => text.text).join('')"
       margin="0rem"
     >
-      <NotionHTML :domjson="dom.children" />
+      <NotionHTML :domjson="dom.children" :theme="theme" />
     </Toggle>
   </div>
 </template>
@@ -159,9 +161,16 @@ import NotionRichText from './NotionRichText.vue'
 import { type DOMJSON } from 'notion-markup-utils/dist/block/DOMJSON'
 import Toggle from '../typography/Toggle.vue'
 
-defineProps<{
-  domjson: DOMJSON[]
-}>()
+withDefaults(
+  defineProps<{
+    domjson: DOMJSON[]
+    /**
+     * Light theme / Dark theme.
+     */
+    theme?: 'light' | 'dark'
+  }>(),
+  { theme: 'light' }
+)
 
 const convertCalloutColor = (dom: DOMJSON) => {
   let color: keyof typeof colors = 'stone'

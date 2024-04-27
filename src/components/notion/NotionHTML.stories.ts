@@ -18,3 +18,7 @@ type Story = StoryObj<typeof NotionHTML>
 export const Primary: Story = {
   args: { domjson: seed as DOMJSON[] }
 }
+
+export const Dark: Story = {
+  args: { domjson: seed as DOMJSON[], theme: 'dark' }
+}
