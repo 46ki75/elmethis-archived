@@ -7,9 +7,8 @@
 <script setup lang="ts">
 import { type RichTextDOMJSON } from 'notion-markup-utils'
 import { VNode, h } from 'vue'
-import { colors } from '../../colors'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     richText: RichTextDOMJSON[]
     /**
@@ -21,8 +20,6 @@ const props = withDefaults(
 )
 
 const wrapElement = (dom: RichTextDOMJSON): VNode => {
-  const colorNumber = props.theme === 'light' ? 800 : 300
-
   let content = dom.text
   let result: string | VNode = content
 
@@ -38,63 +35,39 @@ const wrapElement = (dom: RichTextDOMJSON): VNode => {
       break
 
     case 'blue':
-      result = h('span', { style: { color: colors.blue[colorNumber] } }, result)
+      result = h('span', { style: { color: '#6987b8' } }, result)
       break
 
     case 'brown':
-      result = h(
-        'span',
-        { style: { color: colors.amber[colorNumber] } },
-        result
-      )
+      result = h('span', { style: { color: '#9d5547' } }, result)
       break
 
     case 'gray':
-      result = h(
-        'span',
-        { style: { color: colors.stone[colorNumber] } },
-        result
-      )
+      result = h('span', { style: { color: '#606875' } }, result)
       break
 
     case 'green':
-      result = h(
-        'span',
-        { style: { color: colors.green[colorNumber] } },
-        result
-      )
+      result = h('span', { style: { color: '#59b57c' } }, result)
       break
 
     case 'orange':
-      result = h(
-        'span',
-        { style: { color: colors.orange[colorNumber] } },
-        result
-      )
+      result = h('span', { style: { color: '#bf7e71' } }, result)
       break
 
     case 'pink':
-      result = h('span', { style: { color: colors.pink[colorNumber] } }, result)
+      result = h('span', { style: { color: '#c9699e' } }, result)
       break
 
     case 'purple':
-      result = h(
-        'span',
-        { style: { color: colors.purple[colorNumber] } },
-        result
-      )
+      result = h('span', { style: { color: '#9771bd' } }, result)
       break
 
     case 'red':
-      result = h('span', { style: { color: colors.red[colorNumber] } }, result)
+      result = h('span', { style: { color: '#b36472' } }, result)
       break
 
     case 'yellow':
-      result = h(
-        'span',
-        { style: { color: colors.yellow[colorNumber] } },
-        result
-      )
+      result = h('span', { style: { color: '#b8a36e' } }, result)
       break
 
     default:
@@ -107,11 +80,13 @@ const wrapElement = (dom: RichTextDOMJSON): VNode => {
 </script>
 
 <style scoped lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Courier%20Prime');
 span code {
   font-size: 0.9rem;
   padding: 0 0.25rem;
   margin: 0 0.25rem;
   border-radius: 0.125rem;
+  font-family: 'Courier Prime', monospace;
   background-color: rgba(65, 82, 82, 0.1);
   box-shadow: 0 0 1px rgba(25, 36, 134, 0.2);
 }
