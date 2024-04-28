@@ -1,13 +1,8 @@
 <template>
-  <div>
-    <Callout title="a" color="amber">
-      <div>Heyaaaaaaaaaaaa</div>
-    </Callout>
-  </div>
+  <color />
+  <color theme="dark" />
 </template>
 
-<script setup lang="ts">
-import Callout from './components/typography/Callout.vue'
+<script setup>
+import Color from './Color.vue'
 </script>
-
-<style lang="scss" scoped></style>
