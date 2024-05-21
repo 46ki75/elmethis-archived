@@ -1,10 +1,16 @@
 <template>
   <nav :style="{ marginBottom: margin ?? 0 }">
     <a class="wrapper" :href="url" target="_blank" rel="noreferrer noopener">
-      <img class="img" :src="image" alt="OGP Image" />
+      <img v-if="image != null" class="img" :src="image" alt="OGP Image" />
       <div class="typography-container">
         <div class="title">{{ title }}</div>
-        <div class="description">{{ description }}</div>
+        <div class="description">
+          {{
+            description == '' || description == null
+              ? 'No Description Provided'
+              : description
+          }}
+        </div>
         <div class="url">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,11 +39,11 @@ defineProps<{
    */
   title: string
   /**
-   * **required!**
+   * **optional?**
    *
    * Website description
    */
-  description: string
+  description?: string
   /**
    * **required!**
    *
@@ -73,7 +79,7 @@ defineProps<{
   border: solid 1px rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
 
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
 
   transition: all 0.2s;
 
