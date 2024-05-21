@@ -1,7 +1,13 @@
 <template>
   <nav :style="{ marginBottom: margin ?? 0 }">
     <a class="wrapper" :href="url" target="_blank" rel="noreferrer noopener">
-      <img v-if="image != null" class="img" :src="image" alt="OGP Image" />
+      <img
+        v-if="image != null && isImageAvailable"
+        class="img"
+        :src="image"
+        alt="OGP Image"
+        @error="isImageAvailable = false"
+      />
       <div class="typography-container">
         <div class="title">{{ title }}</div>
         <div class="description">
@@ -31,6 +37,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 defineProps<{
   /**
    * **required!**
@@ -64,6 +72,8 @@ defineProps<{
    */
   margin?: string
 }>()
+
+const isImageAvailable = ref(true)
 </script>
 
 <style scoped lang="scss">
