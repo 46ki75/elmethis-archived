@@ -41,6 +41,7 @@
   },
   "prettier": "prettier-config-standard",
   "dependencies": {
+    "@storybook/addon-mdx-gfm": "^8.1.6",
     "@vueuse/core": "^10.9.0",
     "lodash-es": "^4.17.21",
     "notion-markup-utils": "^1.4.11",
