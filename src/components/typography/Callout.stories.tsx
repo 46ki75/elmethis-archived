@@ -46,3 +46,12 @@ export const Dark: Story = {
     theme: 'dark'
   }
 }
+
+export const Closable: Story = {
+  render: Template,
+  args: {
+    color: 'green',
+    title: 'Title of Callout Block',
+    closable: true
+  }
+}
