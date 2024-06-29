@@ -17,7 +17,6 @@
         </div>
 
         <div class="modal" @click.stop :style="{ opacity: isVisible ? 1 : 0 }">
-          <object type="image/svg+xml" data="../../assets/trush.svg"></object>
           <slot />
         </div>
 
