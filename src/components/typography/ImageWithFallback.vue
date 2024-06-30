@@ -1,5 +1,5 @@
 <template>
-  <div v-if="base64ImageURI === null" class="loading">
+  <div v-if="isLoading" class="loading">
     <div :style="{ aspectRatio: `${width} / ${height}` }">
       <GridLoadingIcon :size="32" />
       <span>LOADING</span>
@@ -7,19 +7,27 @@
   </div>
 
   <img
-    v-else-if="typeof base64ImageURI === 'string'"
     class="image"
-    :src="base64ImageURI"
+    :src="isError ? 'noimage.webp' : src"
     :alt="alt"
-    :style="{ marginBottom: margin ?? 0 }"
+    :style="
+      isLoading
+        ? { marginBottom: margin ?? 0, width: 0, height: 0, opacity: 0 }
+        : { marginBottom: margin ?? 0, opacity: 1 }
+    "
+    @load="isLoading = false"
+    @error="isError = true"
   />
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { ref } from 'vue'
 import GridLoadingIcon from '../icons/GridLoadingIcon.vue'
 
-const props = withDefaults(
+const isLoading = ref(true)
+const isError = ref(false)
+
+withDefaults(
   defineProps<{
     src: string
     alt?: string
@@ -51,66 +59,14 @@ const props = withDefaults(
   }>(),
   { alt: '', width: 1200, height: 630 }
 )
-
-const base64ImageURI = ref<string | null>(null)
-
-const fetchImage = async (src: string): Promise<void> => {
-  const response = await fetch(src)
-
-  if (response.status === 200) {
-    const blob = await response.blob()
-    const reader = new FileReader()
-    reader.readAsDataURL(blob)
-
-    reader.onloadend = () => {
-      const base64data = reader.result
-      base64ImageURI.value = String(base64data)
-    }
-  } else {
-    const response = await fetch('/noimage.webp')
-
-    const blob = await response.blob()
-    const reader = new FileReader()
-    reader.readAsDataURL(blob)
-
-    reader.onloadend = () => {
-      const base64data = reader.result
-      base64ImageURI.value = String(base64data)
-    }
-
-    base64ImageURI.value = null
-  }
-}
-
-onMounted(() => {
-  fetchImage(props.src)
-})
-
-watch(
-  () => props.src,
-  (newsrc: string) => {
-    fetchImage(newsrc)
-  }
-)
 </script>
 
 <style scoped lang="scss">
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .image {
   width: 100%;
   user-select: none;
 
-  animation-name: fadeIn;
-  animation-fill-mode: both;
-  animation-duration: 0.3s;
+  transition: opacity 0.3s;
 }
 
 .loading {
