@@ -1,8 +1,13 @@
 <template>
   <div v-if="isLoading" class="loading">
-    <div :style="{ aspectRatio: `${width} / ${height}` }">
-      <GridLoadingIcon :size="32" />
-      <span>LOADING</span>
+    <div
+      class="loading-container"
+      :style="{ aspectRatio: `${width} / ${height}` }"
+    >
+      <SquareLoadingIcon :size="64" />
+      <TurnText :size="16" text="LOADING IMAGE" />
+
+      <div class="abs"></div>
     </div>
   </div>
 
@@ -22,7 +27,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import GridLoadingIcon from '../icons/GridLoadingIcon.vue'
+import SquareLoadingIcon from '../icons/SquareLoadingIcon.vue'
+import TurnText from '../text/TurnText.vue'
 
 const isLoading = ref(true)
 const isError = ref(false)
@@ -62,6 +68,26 @@ withDefaults(
 </script>
 
 <style scoped lang="scss">
+@keyframes square {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
 .image {
   width: 100%;
   user-select: none;
@@ -73,13 +99,28 @@ withDefaults(
   display: grid;
   width: 100%;
 
-  div {
+  div.loading-container {
+    position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.5rem;
 
-    border: solid 1px rgba(0, 0, 0, 0.2);
+    border: dashed 1px rgba(0, 0, 0, 0.2);
+
+    div.abs {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      border: solid 1px rgba(0, 0, 0, 0.8);
+
+      animation-name: square;
+      animation-duration: 1.4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-out;
+    }
   }
 }
 </style>

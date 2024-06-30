@@ -87,14 +87,23 @@
               : 'rgba(255, 255, 255, 0.8)'
         }"
       >
-        <GridLoadingIcon
+        <DotLoadingIcon
           :size="32"
           :color="
             theme === 'light'
               ? 'rgba(0, 0, 0, 0.8)'
               : 'rgba(255, 255, 255, 0.8)'
           "
-        /><span>LOADING</span>
+        />
+        <TurnText
+          :size="16"
+          :color="
+            theme === 'light'
+              ? 'rgba(0, 0, 0, 0.8)'
+              : 'rgba(255, 255, 255, 0.8)'
+          "
+          text="LOADING"
+        />
       </div>
       <pre
         v-else
@@ -109,7 +118,8 @@ import Prism from 'prismjs'
 
 import { onMounted, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
-import GridLoadingIcon from '../icons/GridLoadingIcon.vue'
+import DotLoadingIcon from '../icons/DotLoadingIcon.vue'
+import TurnText from '../text/TurnText.vue'
 
 declare module 'prismjs/components/prism-rust' {
   export function highlightAll(): void

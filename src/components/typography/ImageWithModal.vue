@@ -1,8 +1,13 @@
 <template>
   <div v-if="isLoading" class="loading">
-    <div>
-      <GridLoadingIcon :size="32" />
-      <span>LOADING</span>
+    <div
+      class="loading-container"
+      :style="{ aspectRatio: `${width} / ${height}` }"
+    >
+      <SquareLoadingIcon :size="64" />
+      <TurnText :size="16" text="LOADING IMAGE" />
+
+      <div class="abs"></div>
     </div>
   </div>
 
@@ -48,7 +53,8 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import GridLoadingIcon from '../icons/GridLoadingIcon.vue'
+import SquareLoadingIcon from '../icons/SquareLoadingIcon.vue'
+import TurnText from '../text/TurnText.vue'
 import { useMagicKeys } from '@vueuse/core'
 
 const isLoading = ref(true)
@@ -65,8 +71,26 @@ withDefaults(
      * If not specified, it defaults to 0.
      */
     margin?: string
+    /**
+     * **optional?**
+     *
+     * Width of fallback image. Converted to aspect ratio for use.
+     * ```ts
+     * { aspectRatio: `${width} / ${height}` }
+     * ```
+     */
+    width?: number
+    /**
+     * **optional?**
+     *
+     * Height of fallback image. Converted to aspect ratio for use.
+     * ```ts
+     * { aspectRatio: `${width} / ${height}` }
+     * ```
+     */
+    height?: number
   }>(),
-  { alt: '' }
+  { alt: '', width: 1200, height: 630 }
 )
 
 const isModalShown = ref<boolean>(false)
@@ -78,6 +102,26 @@ watch(escape, (isKeyDown) => {
 </script>
 
 <style scoped lang="scss">
+@keyframes square {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
 .image {
   width: 100%;
   user-select: none;
@@ -89,15 +133,28 @@ watch(escape, (isKeyDown) => {
   display: grid;
   width: 100%;
 
-  div {
-    aspect-ratio: 1200 / 630;
-
+  div.loading-container {
+    position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.5rem;
 
-    border: solid 1px rgba(0, 0, 0, 0.2);
+    border: dashed 1px rgba(0, 0, 0, 0.2);
+
+    div.abs {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      border: solid 1px rgba(0, 0, 0, 0.8);
+
+      animation-name: square;
+      animation-duration: 1.4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-out;
+    }
   }
 }
 
