@@ -167,42 +167,160 @@ onMounted(async () => {
     await import('./prism-one-dark.scss')
   }
 
-  await import('prismjs/components/prism-abap')
-  await import('prismjs/components/prism-agda')
-  await import('prismjs/components/prism-bash')
-  await import('prismjs/components/prism-basic')
-  await import('prismjs/components/prism-bnf')
-  await import('prismjs/components/prism-c')
-  await import('prismjs/components/prism-csharp')
-  await import('prismjs/components/prism-cpp')
-  await import('prismjs/components/prism-clojure')
-  await import('prismjs/components/prism-coffeescript')
-  await import('prismjs/components/prism-coq')
-  await import('prismjs/components/prism-css')
-  await import('prismjs/components/prism-dart')
-  await import('prismjs/components/prism-dhall')
-  await import('prismjs/components/prism-diff')
-  await import('prismjs/components/prism-ebnf')
-  await import('prismjs/components/prism-elixir')
-  await import('prismjs/components/prism-elm')
-  await import('prismjs/components/prism-erlang')
-  await import('prismjs/components/prism-fsharp')
-  await import('prismjs/components/prism-json')
-  await import('prismjs/components/prism-yaml')
-  await import('prismjs/components/prism-toml')
-  await import('prismjs/components/prism-xml-doc')
-  await import('prismjs/components/prism-makefile')
-  await import('prismjs/components/prism-markdown')
-  await import('prismjs/components/prism-mermaid')
-  await import('prismjs/components/prism-markup')
-  await import('prismjs/components/prism-java')
-  await import('prismjs/components/prism-javascript')
-  await import('prismjs/components/prism-typescript')
-  await import('prismjs/components/prism-kotlin')
-  await import('prismjs/components/prism-go')
-  await import('prismjs/components/prism-python')
-  await import('prismjs/components/prism-rust')
-  await import('prismjs/components/prism-hcl')
+  switch (props.language) {
+    case 'abap':
+      await import('prismjs/components/prism-abap')
+      break
+
+    case 'bash':
+    case 'sh':
+    case 'shell':
+      await import('prismjs/components/prism-bash')
+      break
+
+    case 'basic':
+      await import('prismjs/components/prism-basic')
+      break
+
+    case 'bnf':
+      await import('prismjs/components/prism-bnf')
+      break
+
+    case 'c':
+      await import('prismjs/components/prism-c')
+      break
+
+    case 'csharp':
+    case 'cs':
+      await import('prismjs/components/prism-csharp')
+      break
+
+    case 'cpp':
+      await import('prismjs/components/prism-cpp')
+      break
+
+    case 'clojure':
+      await import('prismjs/components/prism-clojure')
+      break
+
+    case 'coffeescript':
+      await import('prismjs/components/prism-coffeescript')
+      break
+
+    case 'coq':
+      await import('prismjs/components/prism-coq')
+      break
+
+    case 'css':
+      await import('prismjs/components/prism-css')
+      break
+
+    case 'dart':
+      await import('prismjs/components/prism-dart')
+      break
+
+    case 'dhall':
+      await import('prismjs/components/prism-dhall')
+      break
+
+    case 'diff':
+      await import('prismjs/components/prism-diff')
+      break
+
+    case 'ebnf':
+      await import('prismjs/components/prism-ebnf')
+      break
+
+    case 'elixir':
+      await import('prismjs/components/prism-elixir')
+      break
+
+    case 'elm':
+      await import('prismjs/components/prism-elm')
+      break
+
+    case 'erlang':
+      await import('prismjs/components/prism-erlang')
+      break
+
+    case 'fsharp':
+      await import('prismjs/components/prism-fsharp')
+      break
+
+    case 'json':
+      await import('prismjs/components/prism-json')
+      break
+
+    case 'yaml':
+    case 'yml':
+      await import('prismjs/components/prism-yaml')
+      break
+
+    case 'toml':
+      await import('prismjs/components/prism-toml')
+      break
+
+    case 'xml':
+      await import('prismjs/components/prism-xml-doc')
+      break
+
+    case 'makefile':
+    case 'mf':
+      await import('prismjs/components/prism-makefile')
+      break
+
+    case 'markdown':
+    case 'md':
+      await import('prismjs/components/prism-markdown')
+      break
+
+    case 'mermaid':
+      await import('prismjs/components/prism-mermaid')
+      break
+
+    case 'markup':
+    case 'html':
+      await import('prismjs/components/prism-markup')
+      break
+
+    case 'java':
+      await import('prismjs/components/prism-java')
+      break
+
+    case 'javascript':
+    case 'js':
+      await import('prismjs/components/prism-javascript')
+      break
+
+    case 'typescript':
+    case 'ts':
+      await import('prismjs/components/prism-typescript')
+      break
+
+    case 'kotlin':
+    case 'kt':
+      await import('prismjs/components/prism-kotlin')
+      break
+
+    case 'go':
+    case 'golang':
+      await import('prismjs/components/prism-go')
+      break
+
+    case 'python':
+    case 'py':
+      await import('prismjs/components/prism-python')
+      break
+
+    case 'rust':
+    case 'rs':
+      await import('prismjs/components/prism-rust')
+      break
+
+    case 'hcl':
+      await import('prismjs/components/prism-hcl')
+      break
+  }
 
   isLoading.value = false
 
