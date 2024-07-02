@@ -1,5 +1,5 @@
 import { App, createVNode, render } from 'vue'
-import Toast from '../components/Global/Toast/Toast.vue'
+import Toast from '../hooks/Toast/Toast.vue'
 
 export const ElmethisPlugin = {
   install(app: App) {

@@ -40,7 +40,7 @@ export { default as SwitchTheme } from './components/Form/SwitchTheme/SwitchThem
 // # --------------------------------------------------------------------------------
 
 // hooks
-export { useToast } from './components/Global/Toast/useToast'
+export { useToast } from './hooks/Toast/useToast'
 
 // # --------------------------------------------------------------------------------
 //
