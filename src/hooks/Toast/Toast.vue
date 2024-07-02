@@ -1,40 +1,46 @@
 <template>
   <Teleport to="body">
     <div class="wrapper">
-      <div v-for="toast in toasts" :key="toast.id" class="toast">
-        <div class="top-container">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+      <transition-group name="mount" tag="div">
+        <div v-for="toast in toasts" :key="toast.id" class="toast">
+          <div class="top-container">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
 
-        <div class="inner-container">
-          <span>{{ toast.content }}</span>
+          <div class="inner-container">
+            <span>{{ toast.content }}</span>
+            <div
+              class="close"
+              @click="
+                () => {
+                  closeToast(toast.id)
+                }
+              "
+            >
+              <div>×</div>
+            </div>
+          </div>
+
+          <div class="bottom-container">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
           <div
-            class="close"
-            @click="
-              () => {
-                closeToast(toast.id)
-              }
-            "
-          >
-            <div>×</div>
+            class="progress"
+            :style="{
+              animationDuration: `${toast.duration}ms`
+            }"
+          ></div>
+
+          <div class="flavor-text">
+            Press the `×` button to close the toast.
           </div>
         </div>
-
-        <div class="bottom-container">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-
-        <div
-          class="progress"
-          :style="{
-            animationDuration: `${toast.duration}ms`
-          }"
-        ></div>
-      </div>
+      </transition-group>
     </div>
   </Teleport>
 </template>
@@ -50,24 +56,20 @@ import { toasts, closeToast } from './toastManager'
 //
 // # --------------------------------------------------------------------------------
 
-@keyframes in {
-  from {
-    transform: scaleY(0);
-    opacity: 0;
-  }
-  to {
-    transform: scaleY(1);
-    opacity: 1;
-  }
+.mount-enter-to,
+.mount-leave-from {
+  transform: scaleY(1);
 }
 
-* {
-  animation-name: in;
-  animation-duration: 100ms;
-  animation-fill-mode: both;
-
-  transition: all 0.2s;
+.mount-enter-active,
+.mount-leave-active {
+  transition: transform 100ms;
   transform-origin: bottom;
+}
+
+.mount-enter-from,
+.mount-leave-to {
+  transform: scaleY(0);
 }
 
 .wrapper {
@@ -85,11 +87,20 @@ import { toasts, closeToast } from './toastManager'
 .toast {
   max-width: 320px;
   padding: 0.5rem;
-  background: #fff;
+  background: rgba($color: #ffffff, $alpha: 0.8);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  transition: transform 100ms;
+
+  .flavor-text {
+    width: 100%;
+    text-align: right;
+    font-size: 0.4rem;
+    user-select: none;
+  }
 
   .top-container {
     display: flex;
@@ -140,9 +151,12 @@ import { toasts, closeToast } from './toastManager'
       margin: 0 1rem;
       border-radius: 50%;
       cursor: pointer;
+
+      transition: transform 200ms;
+
       &:hover {
-        background-color: rgba(0, 0, 0, 0.2);
-        transform: scale(1.5);
+        background-color: rgba(0, 0, 0, 0.1);
+        transform: scale(1.4);
       }
     }
   }
