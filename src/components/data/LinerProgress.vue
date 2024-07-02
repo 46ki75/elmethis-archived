@@ -46,6 +46,12 @@ import { defineProps, onMounted, ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 import { rgba } from 'polished'
 
+// # --------------------------------------------------------------------------------
+//
+// props
+//
+// # --------------------------------------------------------------------------------
+
 const props = withDefaults(
   defineProps<{
     /**
@@ -83,6 +89,12 @@ const props = withDefaults(
   { weight: 6, displayPercent: false, color: 'black', isLoading: false }
 )
 
+// # --------------------------------------------------------------------------------
+//
+// scripts
+//
+// # --------------------------------------------------------------------------------
+
 const progressWidth = ref(0)
 
 onMounted(() => {
@@ -108,6 +120,12 @@ watch(props, () => {
 </script>
 
 <style lang="scss" scoped>
+// # --------------------------------------------------------------------------------
+//
+// styles
+//
+// # --------------------------------------------------------------------------------
+
 @keyframes loading {
   0% {
     background-position: 0% 0;
