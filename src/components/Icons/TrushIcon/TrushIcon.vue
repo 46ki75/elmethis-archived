@@ -9,9 +9,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-const svgPath = computed(
-  () => new URL('@/assets/trush.svg', import.meta.url).href
-)
+// # --------------------------------------------------------------------------------
+//
+// props
+//
+// # --------------------------------------------------------------------------------
 
 withDefaults(
   defineProps<{
@@ -23,6 +25,16 @@ withDefaults(
     size?: number
   }>(),
   { size: 64 }
+)
+
+// # --------------------------------------------------------------------------------
+//
+// scripts
+//
+// # --------------------------------------------------------------------------------
+
+const svgPath = computed(
+  () => new URL('@/assets/trush.svg', import.meta.url).href
 )
 </script>
 

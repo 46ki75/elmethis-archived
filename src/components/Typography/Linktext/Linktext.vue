@@ -38,6 +38,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+// # --------------------------------------------------------------------------------
+//
+// props
+//
+// # --------------------------------------------------------------------------------
+
 const props = defineProps<{
   /**
    * **required!**
@@ -53,6 +59,12 @@ const props = defineProps<{
   href: string
 }>()
 
+// # --------------------------------------------------------------------------------
+//
+// scripts
+//
+// # --------------------------------------------------------------------------------
+
 const external = computed(() => {
   const link = new URL(props.href, window.location.origin)
   return link.hostname !== window.location.hostname
@@ -60,6 +72,12 @@ const external = computed(() => {
 </script>
 
 <style scoped lang="scss">
+// # --------------------------------------------------------------------------------
+//
+// styles
+//
+// # --------------------------------------------------------------------------------
+
 .link {
   all: unset;
   font-family: sans-serif;

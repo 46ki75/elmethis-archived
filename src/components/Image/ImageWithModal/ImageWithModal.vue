@@ -57,8 +57,11 @@ import SquareLoadingIcon from '../../Icons/SquareLoadingIcon/SquareLoadingIcon.v
 import TurnText from '../../Text/TurnText/TurnText.vue'
 import { useMagicKeys } from '@vueuse/core'
 
-const isLoading = ref(true)
-const isError = ref(false)
+// # --------------------------------------------------------------------------------
+//
+// props
+//
+// # --------------------------------------------------------------------------------
 
 withDefaults(
   defineProps<{
@@ -93,6 +96,15 @@ withDefaults(
   { alt: '', width: 1200, height: 630 }
 )
 
+// # --------------------------------------------------------------------------------
+//
+// scripts
+//
+// # --------------------------------------------------------------------------------
+
+const isLoading = ref(true)
+const isError = ref(false)
+
 const isModalShown = ref<boolean>(false)
 
 const { escape } = useMagicKeys()
@@ -102,6 +114,12 @@ watch(escape, (isKeyDown) => {
 </script>
 
 <style scoped lang="scss">
+// # --------------------------------------------------------------------------------
+//
+// styles
+//
+// # --------------------------------------------------------------------------------
+
 @keyframes square {
   0% {
     transform: scale(0);

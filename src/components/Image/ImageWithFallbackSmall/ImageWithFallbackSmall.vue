@@ -44,8 +44,11 @@ import { ref } from 'vue'
 import { min } from 'lodash-es'
 import DotLoadingIcon from '../../Icons/DotLoadingIcon/DotLoadingIcon.vue'
 
-const isLoading = ref(true)
-const isError = ref(false)
+// # --------------------------------------------------------------------------------
+//
+// props
+//
+// # --------------------------------------------------------------------------------
 
 withDefaults(
   defineProps<{
@@ -79,9 +82,24 @@ withDefaults(
   }>(),
   { alt: '', width: 128, height: 128 }
 )
+
+// # --------------------------------------------------------------------------------
+//
+// scripts
+//
+// # --------------------------------------------------------------------------------
+
+const isLoading = ref(true)
+const isError = ref(false)
 </script>
 
 <style scoped lang="scss">
+// # --------------------------------------------------------------------------------
+//
+// styles
+//
+// # --------------------------------------------------------------------------------
+
 @keyframes square {
   0% {
     transform: scale(0);

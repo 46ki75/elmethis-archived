@@ -125,6 +125,12 @@ declare module 'prismjs/components/prism-rust' {
   export function highlightAll(): void
 }
 
+// # --------------------------------------------------------------------------------
+//
+// props
+//
+// # --------------------------------------------------------------------------------
+
 const props = withDefaults(
   defineProps<{
     /**
@@ -155,6 +161,12 @@ const props = withDefaults(
   }>(),
   { theme: 'light', language: 'txt' }
 )
+
+// # --------------------------------------------------------------------------------
+//
+// scripts
+//
+// # --------------------------------------------------------------------------------
 
 const { copy, copied } = useClipboard({ source: props.code })
 const isLoading = ref(true)
@@ -332,6 +344,12 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
+// # --------------------------------------------------------------------------------
+//
+// styles
+//
+// # --------------------------------------------------------------------------------
+
 .elmethis-codeblock-container-light,
 .elmethis-codeblock-container-dark {
   display: flex;

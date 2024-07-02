@@ -15,6 +15,12 @@
 import AnimateInView from '../../Utils/AnimateInView/AnimateInView.vue'
 import FragmentIdentifier from '../FragmentIdentifier/FragmentIdentifier.vue'
 
+// # --------------------------------------------------------------------------------
+//
+// scripts
+//
+// # --------------------------------------------------------------------------------
+
 withDefaults(
   defineProps<{
     content: string
@@ -32,6 +38,12 @@ withDefaults(
 </script>
 
 <style scoped lang="scss">
+// # --------------------------------------------------------------------------------
+//
+// styles
+//
+// # --------------------------------------------------------------------------------
+
 .heading {
   width: 100%;
   position: relative;

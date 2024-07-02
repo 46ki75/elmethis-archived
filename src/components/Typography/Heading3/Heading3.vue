@@ -23,6 +23,12 @@
 import AnimateInView from '../../Utils/AnimateInView/AnimateInView.vue'
 import FragmentIdentifier from '../FragmentIdentifier/FragmentIdentifier.vue'
 
+// # --------------------------------------------------------------------------------
+//
+// props
+//
+// # --------------------------------------------------------------------------------
+
 withDefaults(
   defineProps<{
     content: string
@@ -40,6 +46,12 @@ withDefaults(
 </script>
 
 <style scoped lang="scss">
+// # --------------------------------------------------------------------------------
+//
+// scripts
+//
+// # --------------------------------------------------------------------------------
+
 .upper {
   display: flex;
   flex-direction: row;

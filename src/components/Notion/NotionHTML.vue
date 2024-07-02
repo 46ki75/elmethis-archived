@@ -161,6 +161,12 @@ import NotionRichText from './NotionRichText.vue'
 import { type DOMJSON } from 'notion-markup-utils/dist/block/DOMJSON'
 import Toggle from '../Containment/Toggle/Toggle.vue'
 
+// # --------------------------------------------------------------------------------
+//
+// props
+//
+// # --------------------------------------------------------------------------------
+
 withDefaults(
   defineProps<{
     domjson: DOMJSON[]
@@ -171,6 +177,12 @@ withDefaults(
   }>(),
   { theme: 'light' }
 )
+
+// # --------------------------------------------------------------------------------
+//
+// scripts
+//
+// # --------------------------------------------------------------------------------
 
 const convertCalloutColor = (dom: DOMJSON) => {
   let color: keyof typeof colors = 'stone'
@@ -227,6 +239,12 @@ const convertCalloutColor = (dom: DOMJSON) => {
 </script>
 
 <style scoped lang="scss">
+// # --------------------------------------------------------------------------------
+//
+// styles
+//
+// # --------------------------------------------------------------------------------
+
 p {
   margin-bottom: 2rem;
 }

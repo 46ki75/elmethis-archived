@@ -68,12 +68,11 @@ import AnimateInView from '../../Utils/AnimateInView/AnimateInView.vue'
 import InfoIcon from '../../Icons/InfoIcon/InfoIcon.vue'
 import { ref } from 'vue'
 
-function hexToRGBA(hex: string, opacity: number): string {
-  const alpha = Math.round(opacity * 255)
-    .toString(16)
-    .padStart(2, '0')
-  return `${hex}${alpha}`
-}
+// # --------------------------------------------------------------------------------
+//
+// props
+//
+// # --------------------------------------------------------------------------------
 
 withDefaults(
   defineProps<{
@@ -95,10 +94,29 @@ withDefaults(
   { color: 'slate', theme: 'light', closable: false }
 )
 
+// # --------------------------------------------------------------------------------
+//
+// scripts
+//
+// # --------------------------------------------------------------------------------
+
+function hexToRGBA(hex: string, opacity: number): string {
+  const alpha = Math.round(opacity * 255)
+    .toString(16)
+    .padStart(2, '0')
+  return `${hex}${alpha}`
+}
+
 const isVisible = ref(true)
 </script>
 
 <style scoped lang="scss">
+// # --------------------------------------------------------------------------------
+//
+// styles
+//
+// # --------------------------------------------------------------------------------
+
 @keyframes in {
   from {
     background-position: 100% 0%;

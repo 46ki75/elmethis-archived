@@ -16,6 +16,12 @@
 <script setup lang="ts">
 import AnimateInView from '../../Utils/AnimateInView/AnimateInView.vue'
 
+// # --------------------------------------------------------------------------------
+//
+// props
+//
+// # --------------------------------------------------------------------------------
+
 withDefaults(
   defineProps<{
     content: string
@@ -33,6 +39,12 @@ withDefaults(
 </script>
 
 <style scoped lang="scss">
+// # --------------------------------------------------------------------------------
+//
+// styles
+//
+// # --------------------------------------------------------------------------------
+
 .h1 {
   font-family: sans-serif;
   position: relative;

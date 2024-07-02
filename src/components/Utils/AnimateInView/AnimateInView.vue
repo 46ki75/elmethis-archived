@@ -10,6 +10,12 @@
 import { ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 
+// # --------------------------------------------------------------------------------
+//
+// scripts
+//
+// # --------------------------------------------------------------------------------
+
 const renderKey = ref(0)
 const observerElement = ref<HTMLElement | null>(null)
 const targetIsVisible = useElementVisibility(observerElement)
