@@ -66,17 +66,18 @@ const isMouseOver = ref(false)
 
 .v-enter-to,
 .v-leave-from {
-  opacity: 1;
+  transform: rotateX(0deg);
 }
 
 .v-enter-active,
 .v-leave-active {
-  transition: opacity 100ms;
+  transition: transform 100ms;
+  transform-origin: top;
 }
 
 .v-enter-from,
 .v-leave-to {
-  opacity: 0;
+  transform: rotateX(90deg);
 }
 
 .target {
