@@ -1,0 +1,40 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks'
+
+import * as Stories from './CloseToast.stories'
+
+<Meta of={Stories} />
+
+<Canvas of={Stories.Primary} />
+
+<Controls />
+
+# Checkbox
+
+Please confirm that the plugin has been registered.
+
+You can use it as follows:
+
+```vue
+<template>
+  <button @click="handleClick()">Diaplay Message</button>
+  <button @click="handleClose()">Close latest toast</button>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useToast } from '../useToast'
+import { closeToast } from '../toastManager'
+const { addToast } = useToast()
+
+const id = ref('')
+
+const handleClick = () => {
+  const toast = addToast({ content: 'Hello!' })
+  id.value = toast.id
+}
+
+const handleClose = () => {
+  closeToast(id.value)
+}
+</script>
+```
