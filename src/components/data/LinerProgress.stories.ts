@@ -6,19 +6,14 @@ const meta: Meta<typeof LinerProgress> = {
   component: LinerProgress,
   title: 'Data/LinerProgress',
   tags: ['autodocs'],
-  argTypes: {
-    theme: {
-      control: 'radio',
-      options: ['crimson', 'amber', 'gold', 'emerald', 'blue', 'purple', 'pink']
-    }
-  }
+  argTypes: {}
 }
 
 export default meta
 type Story = StoryObj<typeof LinerProgress>
 
 export const DisplayPercent: Story = {
-  args: { progress: 50, displayPercent: true, theme: 'blue' }
+  args: { progress: 50, displayPercent: true, color: 'darkblue' }
 }
 
 export const NotDisplayPercent: Story = {

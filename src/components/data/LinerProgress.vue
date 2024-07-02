@@ -4,7 +4,7 @@
       <div
         class="progress-bar__buffer"
         :style="{
-          backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0) 0% 50%, ${themeTemplate[theme].buffer} 50% 100%)`,
+          backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0) 0% 50%, ${rgba(color, 0.35)} 50% 100%)`,
           backgroundPositionX: `${-progressWidth}%`
         }"
       >
@@ -13,7 +13,7 @@
       <div
         class="progress-bar__progress"
         :style="{
-          backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0) 0% 50%, ${themeTemplate[theme].progress} 50% 100%)`,
+          backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0) 0% 50%, ${color} 50% 100%)`,
           backgroundPositionX: `${-progressWidth}%`
         }"
       ></div>
@@ -24,24 +24,31 @@
 <script setup lang="ts">
 import { defineProps, onMounted, ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
-
-const themeTemplate = {
-  crimson: { progress: '#994b59', buffer: '#d5a8b0' },
-  amber: { progress: '#ae5f4f', buffer: '#dfbeb7' },
-  gold: { progress: '#a38b50', buffer: '#daceb2' },
-  emerald: { progress: '#449763', buffer: '#a0d4b4' },
-  blue: { progress: '#4c6da2', buffer: '#aebed9' },
-  purple: { progress: '#7e50ab', buffer: '#cab7dd' },
-  pink: { progress: '#bb4486', buffer: '#e4b4ce' }
-}
+import { rgba } from 'polished'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * **required!**
+     *
+     * Specify the progress in percentage.
+     */
     progress: number
+    /**
+     * **optional?** default: false
+     *
+     * Specify whether to display in percentage with a boolean value.
+     */
     displayPercent: boolean
-    theme: keyof typeof themeTemplate
+    /**
+     * **optional?** default: 'black'
+     *
+     * Specify the color of the progress bar.
+     * The color of the buffer will be automatically diluted using `polished` color.
+     */
+    color: string
   }>(),
-  { displayPercent: false, theme: 'crimson' }
+  { displayPercent: false, color: 'black' }
 )
 
 const progressWidth = ref(0)
