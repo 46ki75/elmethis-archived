@@ -5,4 +5,8 @@ import 'prismjs'
 import './style.scss'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import { ElmethisPlugin } from './plugins/ElmethisPlugin'
+
+const app = createApp(App)
+app.use(ElmethisPlugin)
+app.mount('#app')

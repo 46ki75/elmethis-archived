@@ -1,6 +1,13 @@
 import type { Preview } from '@storybook/vue3'
 import '../src/style.scss'
 
+import { setup } from '@storybook/vue3'
+import { ElmethisPlugin } from '../src/plugins/ElmethisPlugin'
+
+setup((app) => {
+  app.use(ElmethisPlugin)
+})
+
 const preview: Preview = {
   parameters: {
     controls: {

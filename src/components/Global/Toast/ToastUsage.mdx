@@ -1,0 +1,30 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks'
+
+import * as TostUsageStories from './ToastUsage.stories'
+
+<Meta of={TostUsageStories} />
+
+<Canvas of={TostUsageStories.Primary} />
+
+<Controls />
+
+# Checkbox
+
+Please confirm that the plugin has been registered.
+
+You can use it as follows:
+
+```vue
+<template>
+  <button @click="handleClick()">Diaplay Message</button>
+</template>
+
+<script setup lang="ts">
+import { useToast } from './useToast'
+const { addToast } = useToast()
+
+const handleClick = () => {
+  addToast('Hello!')
+}
+</script>
+```

@@ -1,0 +1,54 @@
+# How to Use the Plugin
+
+Elmethis uses plugins to make global components (such as toasts and snack bars, which are displayed with a `fixed` position) easier to use.
+
+To use the plugin, do the following at the entry point of your application:
+
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
+
+// Import the Elmethis plugin
+import { ElmethisPlugin } from './plugins/ElmethisPlugin'
+
+const app = createApp(App)
+
+// Apply the plugin
+app.use(ElmethisPlugin)
+
+app.mount('#app')
+```
+
+## Example of a Custom Hook
+
+You can use a custom hook as follows:
+
+```vue
+<template>
+  <button @click="handleClick()">Display Message</button>
+</template>
+
+<script setup lang="ts">
+import { useToast } from 'elmethis'
+const { addToast } = useToast()
+
+const handleClick = () => {
+  addToast('Hello!')
+}
+</script>
+```
+
+## Additional Information
+
+You can use the plugin with Storybook as follows:
+
+`preview.ts`
+
+```ts
+import { setup } from '@storybook/vue3'
+import { ElmethisPlugin } from '../src/plugins/ElmethisPlugin'
+
+setup((app) => {
+  app.use(ElmethisPlugin)
+})
+```

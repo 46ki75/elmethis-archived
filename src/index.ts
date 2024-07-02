@@ -35,6 +35,15 @@ export { default as SwitchTheme } from './components/Form/SwitchTheme/SwitchThem
 
 // # --------------------------------------------------------------------------------
 //
+// Global
+//
+// # --------------------------------------------------------------------------------
+
+// hooks
+export { useToast } from './components/Global/Toast/useToast'
+
+// # --------------------------------------------------------------------------------
+//
 // Icon
 //
 // # --------------------------------------------------------------------------------
@@ -107,3 +116,11 @@ export { default as Linktext } from './components/Typography/Linktext/Linktext.v
 // # --------------------------------------------------------------------------------
 
 export { default as AnimateInView } from './components/Utils/AnimateInView/AnimateInView.vue'
+
+// # --------------------------------------------------------------------------------
+//
+// plugins
+//
+// # --------------------------------------------------------------------------------
+
+export { ElmethisPlugin } from './plugins/ElmethisPlugin'
