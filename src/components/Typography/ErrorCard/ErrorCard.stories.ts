@@ -4,7 +4,7 @@ import ErrorCard from './ErrorCard.vue'
 
 export default {
   component: ErrorCard,
-  title: 'Typography/ErrorCard',
+  title: 'Components/Typography/ErrorCard',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

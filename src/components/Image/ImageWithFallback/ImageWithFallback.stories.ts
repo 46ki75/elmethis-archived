@@ -4,7 +4,7 @@ import ImageWithFallback from './ImageWithFallback.vue'
 
 export default {
   component: ImageWithFallback,
-  title: 'Image/ImageWithFallback',
+  title: 'Components/Image/ImageWithFallback',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

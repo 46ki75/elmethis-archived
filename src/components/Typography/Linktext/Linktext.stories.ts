@@ -4,7 +4,7 @@ import Linktext from './Linktext.vue'
 
 const meta: Meta<typeof Linktext> = {
   component: Linktext,
-  title: 'Typography/Linktext',
+  title: 'Components/Typography/Linktext',
   tags: ['autodocs']
 }
 

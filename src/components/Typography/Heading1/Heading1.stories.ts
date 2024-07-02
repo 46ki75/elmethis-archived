@@ -4,7 +4,7 @@ import Heading1 from './Heading1.vue'
 
 export default {
   component: Heading1,
-  title: 'Typography/Heading1',
+  title: 'Components/Typography/Heading1',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

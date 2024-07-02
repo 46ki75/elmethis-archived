@@ -4,7 +4,7 @@ import SwitchTheme from './SwitchTheme.vue'
 
 export default {
   component: SwitchTheme,
-  title: 'Form/SwitchTheme',
+  title: 'Components/Form/SwitchTheme',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

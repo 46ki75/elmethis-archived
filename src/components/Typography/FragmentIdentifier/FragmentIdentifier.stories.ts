@@ -4,7 +4,7 @@ import FragmentIdentifier from './FragmentIdentifier.vue'
 
 export default {
   component: FragmentIdentifier,
-  title: 'Typography/FragmentIdentifier',
+  title: 'Components/Typography/FragmentIdentifier',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

@@ -4,7 +4,7 @@ import TriangleLoadingIcon from './TriangleLoadingIcon.vue'
 
 export default {
   component: TriangleLoadingIcon,
-  title: 'Icons/TriangleLoadingIcon',
+  title: 'Components/Icons/TriangleLoadingIcon',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

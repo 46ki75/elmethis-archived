@@ -4,7 +4,7 @@ import ConnectionIcon from './ConnectionIcon.vue'
 
 export default {
   component: ConnectionIcon,
-  title: 'Icons/ConnectionIcon',
+  title: 'Components/Icons/ConnectionIcon',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

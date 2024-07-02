@@ -4,7 +4,7 @@ import DotLoadingIcon from './DotLoadingIcon.vue'
 
 export default {
   component: DotLoadingIcon,
-  title: 'Icons/DotLoadingIcon',
+  title: 'Components/Icons/DotLoadingIcon',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

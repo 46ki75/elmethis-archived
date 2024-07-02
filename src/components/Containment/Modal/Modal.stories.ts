@@ -5,7 +5,7 @@ import { ref } from 'vue'
 
 export default {
   component: Modal,
-  title: 'Containment/Modal',
+  title: 'Components/Containment/Modal',
   argTypes: {}
 } as Meta
 

@@ -4,7 +4,7 @@ import TrushIcon from './TrushIcon.vue'
 
 const meta: Meta<typeof TrushIcon> = {
   component: TrushIcon,
-  title: 'Icon/TrushIcon',
+  title: 'Components/Icon/TrushIcon',
   tags: ['autodocs'],
   argTypes: {}
 }

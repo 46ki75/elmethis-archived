@@ -6,7 +6,7 @@ import { ref } from 'vue'
 
 const meta: Meta<typeof Toggle> = {
   component: Toggle,
-  title: 'Containment/Toggle',
+  title: 'Components/Containment/Toggle',
   tags: ['autodocs'],
   argTypes: {}
 }

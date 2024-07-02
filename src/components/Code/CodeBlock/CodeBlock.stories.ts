@@ -4,7 +4,7 @@ import CodeBlock from './CodeBlock.vue'
 
 export default {
   component: CodeBlock,
-  title: 'Code/CodeBlock',
+  title: 'Components/Code/CodeBlock',
   // tags: ['autodocs'],
   argTypes: {}
 } as Meta

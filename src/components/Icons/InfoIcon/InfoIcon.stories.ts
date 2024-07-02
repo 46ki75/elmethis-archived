@@ -4,7 +4,7 @@ import InfoIcon from './InfoIcon.vue'
 
 export default {
   component: InfoIcon,
-  title: 'Icons/InfoIcon',
+  title: 'Components/Icons/InfoIcon',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

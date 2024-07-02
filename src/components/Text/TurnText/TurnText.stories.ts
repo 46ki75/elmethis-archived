@@ -4,7 +4,7 @@ import TurnText from './TurnText.vue'
 
 export default {
   component: TurnText,
-  title: 'Text/TurnText',
+  title: 'Components/Text/TurnText',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

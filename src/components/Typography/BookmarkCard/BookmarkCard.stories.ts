@@ -4,7 +4,7 @@ import BookmarkCard from './BookmarkCard.vue'
 
 const meta: Meta<typeof BookmarkCard> = {
   component: BookmarkCard,
-  title: 'Typography/BookmarkCard',
+  title: 'Components/Typography/BookmarkCard',
   tags: ['autodocs'],
   argTypes: {}
 }

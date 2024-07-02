@@ -4,7 +4,7 @@ import Checkbox from './Checkbox.vue'
 
 export default {
   component: Checkbox,
-  title: 'Form/Checkbox',
+  title: 'Components/Form/Checkbox',
   // tags: ['autodocs'],
   argTypes: {}
 } as Meta

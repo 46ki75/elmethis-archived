@@ -4,7 +4,7 @@ import ImageWithModal from './ImageWithModal.vue'
 
 export default {
   component: ImageWithModal,
-  title: 'Image/ImageWithModal',
+  title: 'Components/Image/ImageWithModal',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

@@ -5,7 +5,7 @@ import { colors } from '../../../colors'
 
 const meta: Meta<typeof Callout> = {
   component: Callout,
-  title: 'Typography/Callout',
+  title: 'Components/Typography/Callout',
   tags: ['autodocs'],
   argTypes: {
     color: {

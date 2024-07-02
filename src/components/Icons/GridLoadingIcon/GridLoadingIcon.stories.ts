@@ -4,7 +4,7 @@ import GridLoadingIcon from './GridLoadingIcon.vue'
 
 export default {
   component: GridLoadingIcon,
-  title: 'Icons/GridLoadingIcon',
+  title: 'Components/Icons/GridLoadingIcon',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

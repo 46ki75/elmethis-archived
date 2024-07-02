@@ -4,7 +4,7 @@ import Tooltip from './Tooltip.vue'
 
 const meta: Meta<typeof Tooltip> = {
   component: Tooltip,
-  title: 'Containment/Tooltip',
+  title: 'Components/Containment/Tooltip',
   tags: ['autodocs'],
   argTypes: {}
 }

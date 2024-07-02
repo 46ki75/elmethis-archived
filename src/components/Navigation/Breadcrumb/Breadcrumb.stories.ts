@@ -4,7 +4,7 @@ import Breadcrumb from './Breadcrumb.vue'
 
 export default {
   component: Breadcrumb,
-  title: 'Navigation/Breadcrumb',
+  title: 'Components/Navigation/Breadcrumb',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

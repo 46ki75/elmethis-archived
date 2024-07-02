@@ -4,7 +4,7 @@ import HelpIcon from './HelpIcon.vue'
 
 export default {
   component: HelpIcon,
-  title: 'Icons/HelpIcon',
+  title: 'Components/Icons/HelpIcon',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

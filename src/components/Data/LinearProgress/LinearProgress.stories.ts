@@ -4,7 +4,7 @@ import LinerProgress from './LinearProgress.vue'
 
 const meta: Meta<typeof LinerProgress> = {
   component: LinerProgress,
-  title: 'Data/LinerProgress',
+  title: 'Components/Data/LinerProgress',
   tags: ['autodocs'],
   argTypes: {}
 }

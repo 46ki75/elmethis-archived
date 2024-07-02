@@ -4,7 +4,7 @@ import Pagetop from './Pagetop.vue'
 
 export default {
   component: Pagetop,
-  title: 'Navigation/Pagetop',
+  title: 'Components/Navigation/Pagetop',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

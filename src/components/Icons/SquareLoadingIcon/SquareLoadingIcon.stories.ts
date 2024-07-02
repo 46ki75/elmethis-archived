@@ -4,7 +4,7 @@ import SquareLoadingIcon from './SquareLoadingIcon.vue'
 
 export default {
   component: SquareLoadingIcon,
-  title: 'Icons/SquareLoadingIcon',
+  title: 'Components/Icons/SquareLoadingIcon',
   tags: ['autodocs'],
   argTypes: {}
 } as Meta

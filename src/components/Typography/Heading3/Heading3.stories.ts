@@ -4,7 +4,7 @@ import Heading3 from './Heading3.vue'
 
 const meta: Meta<typeof Heading3> = {
   component: Heading3,
-  title: 'Typography/Heading3',
+  title: 'Components/Typography/Heading3',
   tags: ['autodocs'],
   argTypes: {}
 }

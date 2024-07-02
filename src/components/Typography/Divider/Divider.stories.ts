@@ -4,7 +4,7 @@ import Divider from './Divider.vue'
 
 const meta: Meta<typeof Divider> = {
   component: Divider,
-  title: 'Typography/Divider',
+  title: 'Components/Typography/Divider',
   tags: ['autodocs'],
   argTypes: {}
 }
