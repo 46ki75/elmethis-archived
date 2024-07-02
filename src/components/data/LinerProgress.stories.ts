@@ -19,3 +19,11 @@ export const DisplayPercent: Story = {
 export const NotDisplayPercent: Story = {
   args: { progress: 80 }
 }
+
+export const Bold: Story = {
+  args: { progress: 80, weight: 16 }
+}
+
+export const Loading: Story = {
+  args: { progress: 80, isLoading: true }
+}
