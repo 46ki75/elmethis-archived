@@ -1,38 +1,42 @@
 <template>
   <span
     ref="targetRef"
+    class="target"
     @mouseover="isMouseOver = true"
     @mouseout="isMouseOver = false"
   >
     <slot name="target" />
   </span>
 
-  <Teleport to="body" v-if="isMouseOver">
-    <div
-      class="tooltip"
-      ref="tooltipRef"
-      :style="{
-        left:
-          target.x.value + target.width.value / 2 + tooltip.width.value / 2 >=
-          windowWidth // Right marginal condition
-            ? windowWidth - tooltip.width.value + `px`
-            : target.x.value +
-                  target.width.value / 2 -
-                  tooltip.width.value / 2 <=
-                0 // Left marginal condition
-              ? 0 + `px`
+  <Teleport to="body">
+    <transition tag="div">
+      <div
+        v-if="isMouseOver"
+        class="tooltip"
+        ref="tooltipRef"
+        :style="{
+          left:
+            target.x.value + target.width.value / 2 + tooltip.width.value / 2 >=
+            windowWidth // Right marginal condition
+              ? windowWidth - tooltip.width.value + `px`
               : target.x.value +
-                target.width.value / 2 -
-                tooltip.width.value / 2 +
-                `px`,
-        top: `${target.bottom.value}px`,
-        maxWidth: Math.min(windowWidth - 32, MAX_WIDTH) + 'px'
-      }"
-    >
-      <div class="container">
-        <slot name="default" />
+                    target.width.value / 2 -
+                    tooltip.width.value / 2 <=
+                  0 // Left marginal condition
+                ? 0 + `px`
+                : target.x.value +
+                  target.width.value / 2 -
+                  tooltip.width.value / 2 +
+                  `px`,
+          top: `${target.bottom.value}px`,
+          maxWidth: Math.min(windowWidth - 32, MAX_WIDTH) + 'px'
+        }"
+      >
+        <div class="container">
+          <slot name="default" />
+        </div>
       </div>
-    </div>
+    </transition>
   </Teleport>
 </template>
 
@@ -54,13 +58,29 @@ const isMouseOver = ref(false)
 </script>
 
 <style scoped lang="scss">
-@keyframes in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+// # --------------------------------------------------------------------------------
+//
+// styles
+//
+// # --------------------------------------------------------------------------------
+
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 100ms;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.target {
+  cursor: help;
 }
 
 .tooltip {
@@ -71,7 +91,6 @@ const isMouseOver = ref(false)
 
   pointer-events: none;
 
-  animation-name: in;
   animation-duration: 0.2s;
   animation-fill-mode: both;
 
@@ -79,6 +98,9 @@ const isMouseOver = ref(false)
     position: relative;
     margin: 0.5rem;
     padding: 0.5rem;
+
+    background: rgba($color: #000000, $alpha: 0.1);
+    border-radius: 0.25rem;
   }
 }
 </style>
