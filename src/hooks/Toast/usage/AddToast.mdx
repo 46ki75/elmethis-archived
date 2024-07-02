@@ -1,10 +1,10 @@
 import { Canvas, Meta, Controls } from '@storybook/blocks'
 
-import * as TostUsageStories from './ToastUsage.stories'
+import * as AddToastStories from './AddToast.stories'
 
-<Meta of={TostUsageStories} />
+<Meta of={AddToastStories} />
 
-<Canvas of={TostUsageStories.Primary} />
+<Canvas of={AddToastStories.Primary} />
 
 <Controls />
 
@@ -20,11 +20,11 @@ You can use it as follows:
 </template>
 
 <script setup lang="ts">
-import { useToast } from './useToast'
+import { useToast } from '../useToast'
 const { addToast } = useToast()
 
 const handleClick = () => {
-  addToast('Hello!')
+  addToast({ content: 'Hello!' })
 }
 </script>
 ```

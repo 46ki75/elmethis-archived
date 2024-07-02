@@ -3,12 +3,10 @@
 </template>
 
 <script setup lang="ts">
-import { useToast } from './useToast'
+import { useToast } from '../useToast'
 const { addToast } = useToast()
 
 const handleClick = () => {
-  addToast('Hello!')
+  addToast({ content: 'Hello!' })
 }
 </script>
-
-<style scoped lang="scss"></style>

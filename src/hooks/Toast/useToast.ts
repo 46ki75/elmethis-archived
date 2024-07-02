@@ -1,7 +1,8 @@
-import { addToast } from './toastManager'
+import { addToast, closeToast } from './toastManager'
 
 export const useToast = () => {
   return {
-    addToast
+    addToast,
+    closeToast
   }
 }

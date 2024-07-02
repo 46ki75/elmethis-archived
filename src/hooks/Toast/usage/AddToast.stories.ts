@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 
-import ToastUsage from './ToastUsage.vue'
+import AddToast from './AddToast.vue'
 
 export default {
-  component: ToastUsage,
-  title: 'Hooks/Toast',
+  component: AddToast,
+  title: 'Hooks/Toast/AddToast',
   argTypes: {}
 } as Meta
 
-type Story = StoryObj<typeof ToastUsage>
+type Story = StoryObj<typeof AddToast>
 
 export const Primary: Story = {
   args: {}
