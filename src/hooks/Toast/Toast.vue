@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <div class="wrapper">
-      <div v-for="(toast, index) in toasts" :key="index" class="toast">
+      <div v-for="toast in toasts" :key="toast.id" class="toast">
         <div class="top-container">
           <div></div>
           <div></div>
@@ -67,6 +67,7 @@ import { toasts, closeToast } from './toastManager'
   animation-fill-mode: both;
 
   transition: all 0.2s;
+  transform-origin: bottom;
 }
 
 .wrapper {
@@ -82,9 +83,9 @@ import { toasts, closeToast } from './toastManager'
 }
 
 .toast {
-  background: #fff;
-
+  max-width: 320px;
   padding: 0.5rem;
+  background: #fff;
 
   display: flex;
   flex-direction: column;
