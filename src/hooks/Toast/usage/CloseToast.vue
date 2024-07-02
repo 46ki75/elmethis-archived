@@ -12,7 +12,7 @@ const { addToast } = useToast()
 const id = ref('')
 
 const handleClick = () => {
-  const toast = addToast({ content: 'Hello!' })
+  const toast = addToast({ content: 'Hello! Elmethis!' })
   id.value = toast.id
 }
 

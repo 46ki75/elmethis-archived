@@ -7,6 +7,6 @@ import { useToast } from '../useToast'
 const { addToast } = useToast()
 
 const handleClick = () => {
-  addToast({ content: 'Hello!' })
+  addToast({ content: 'Hello! Elmethis!' })
 }
 </script>
