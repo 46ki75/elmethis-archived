@@ -14,6 +14,10 @@ export default meta
 
 type Story = StoryObj<typeof NotionHTML>
 
-export const Primary: Story = {
+export const Light: Story = {
   args: { domjson: seed }
+}
+
+export const Dark: Story = {
+  args: { domjson: seed, theme: 'dark' }
 }

@@ -1,10 +1,14 @@
 <template>
   <div
-    :class="`elmethis-codeblock-container elmethis-codeblock-container-${theme}`"
+    :class="{
+      'elmethis-codeblock-container': true,
+      'elmethis-codeblock-container-light': theme === 'light',
+      'elmethis-codeblock-container-dark': theme === 'dark'
+    }"
     :style="{ marginBottom: margin ?? 0 }"
   >
     <div
-      class="header"
+      class="elmethis-codeblock-header"
       :style="{
         background:
           theme === 'light' ? 'rgb(250, 250, 250)' : 'rgb(40, 44, 52)',
@@ -343,7 +347,7 @@ onMounted(async () => {
 })
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 // # --------------------------------------------------------------------------------
 //
 // styles
@@ -380,120 +384,119 @@ onMounted(async () => {
   }
 }
 
-.header {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0.55rem 0.75rem 0.25rem 0.75rem;
-  margin: 0;
-  border-radius: 0.25rem 0.25rem 0 0;
-
-  font-family: sans-serif;
-  font-size: 0.8em;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-
-  div.caption {
-    font-size: 1rem;
-
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    &::selection {
-      background: #b8e7c5;
-      color: #000;
-    }
-  }
-
-  div.copy {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    position: relative;
-    transition: 0.1s;
-
-    white-space: nowrap;
-
-    span {
-      font-size: 0.75rem;
-      transition: all 0.2s;
-      user-select: none;
-    }
-
-    svg {
-      cursor: pointer;
-      padding: 0.25rem;
-      border-radius: 0.125rem;
-      transition: all 0.1s;
-    }
-  }
-}
-
-.hover-light {
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-}
-
-.hover-dark {
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-}
-
-.hr {
-  box-sizing: border-box;
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-
-  display: flex;
-  justify-content: center;
-
-  hr {
+.elmethis-codeblock-container,
+.elmethis-codeblock-container-light,
+.elmethis-codeblock-container-dark {
+  .elmethis-codeblock-header {
     box-sizing: border-box;
+    width: 100%;
+    padding: 0.55rem 0.75rem 0.25rem 0.75rem;
+    margin: 0;
+    border-radius: 0.25rem 0.25rem 0 0;
+
+    font-size: 0.8em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    div.caption {
+      font-size: 1rem;
+
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &::selection {
+        background: #b8e7c5;
+        color: #000;
+      }
+    }
+
+    div.copy {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      position: relative;
+      transition: 0.1s;
+
+      white-space: nowrap;
+
+      span {
+        font-size: 0.75rem;
+        transition: all 0.2s;
+        user-select: none;
+      }
+
+      svg {
+        cursor: pointer;
+        padding: 0.25rem;
+        border-radius: 0.125rem;
+        transition: all 0.1s;
+      }
+    }
+  }
+
+  .hover-light {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .hover-dark {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .hr {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
     margin: 0;
     padding: 0;
-    width: calc(100% - 1rem);
-    border: none;
+
+    display: flex;
+    justify-content: center;
+
+    hr {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      width: calc(100% - 1rem);
+      border: none;
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Courier%20Prime');
+  .code {
+    margin: 0;
+    animation: fade 0.2s both;
+    border-radius: 0 0 0.25rem 0.25rem;
+  }
+
+  .fallback {
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
   }
 }
 
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Courier%20Prime');
-.code {
-  margin: 0;
-  animation: fade 0.2s both;
-  border-radius: 0 0 0.25rem 0.25rem;
-}
-
-.code,
-.code * {
-  font-family: 'Courier Prime', monospace;
-}
-
-.fallback {
-  width: 100%;
-  padding: 1rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
 // # --------------------------------------------------------------------------------
 //
 // DARK
@@ -535,8 +538,8 @@ onMounted(async () => {
     background: hsl(220, 13%, 18%);
     color: hsl(220, 14%, 71%);
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono',
-      monospace;
+    font-family: 'Courier Prime', 'Fira Code', 'Fira Mono', Menlo, Consolas,
+      'DejaVu Sans Mono', monospace;
     direction: ltr;
     text-align: left;
     white-space: pre;
@@ -995,8 +998,8 @@ onMounted(async () => {
   pre[class*='language-'] {
     background: hsl(230, 1%, 98%);
     color: hsl(230, 8%, 24%);
-    font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono',
-      monospace;
+    font-family: 'Courier Prime', 'Fira Code', 'Fira Mono', Menlo, Consolas,
+      'DejaVu Sans Mono', monospace;
     direction: ltr;
     text-align: left;
     white-space: pre;
