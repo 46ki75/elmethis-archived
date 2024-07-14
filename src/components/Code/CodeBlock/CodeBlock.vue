@@ -121,6 +121,8 @@ import { useClipboard } from '@vueuse/core'
 import DotLoadingIcon from '../../Icons/DotLoadingIcon/DotLoadingIcon.vue'
 import TurnText from '../../Text/TurnText/TurnText.vue'
 
+import path from 'path'
+
 declare module 'prismjs/components/prism-rust' {
   export function highlightAll(): void
 }
@@ -174,9 +176,9 @@ const isLoading = ref(true)
 onMounted(async () => {
   isLoading.value = true
   if (props.theme === 'light') {
-    await import('@/components/Code/CodeBlock/prism-one-dark.scss')
+    await import(path.resolve(__dirname, './prism-one-light.scss'))
   } else {
-    await import('@/components/Code/CodeBlock/prism-one-dark.scss')
+    await import(path.resolve(__dirname, './prism-one-dark.scss'))
   }
 
   switch (props.language) {
