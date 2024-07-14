@@ -3,11 +3,12 @@ import vue from '@vitejs/plugin-vue'
 
 import * as path from 'path'
 import dts from 'vite-plugin-dts'
+import dynamicImport from 'vite-plugin-dynamic-import'
 import sass from 'sass'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), dts()],
+  plugins: [vue(), dts(), dynamicImport()],
   base: '/elmethis',
   build: {
     lib: {
