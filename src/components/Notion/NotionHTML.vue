@@ -200,7 +200,8 @@
             ? theme === 'dark'
               ? 'rgb(222,222,222)'
               : 'rgb(22,22,22)'
-            : ''
+            : '',
+        fontFamily: '\'Courier Prime\', monospace'
       }"
       >{{ dom.content }}</code
     >
