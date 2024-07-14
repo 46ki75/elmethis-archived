@@ -31,13 +31,14 @@
       :theme="theme"
       :color="'emerald'"
     >
-      <NotionHTML :domjson="dom.children" />
+      <NotionHTML :domjson="dom.children" :theme="theme" />
     </Callout>
 
     <CodeBlock
       v-else-if="dom.type === 'code'"
       :code="dom.content"
       :margin="margin"
+      :theme="theme"
     />
 
     <Divider v-else-if="dom.type === 'divider'" :margin="margin" />
@@ -54,7 +55,7 @@
       :summary="dom.content"
       :margin="margin"
     >
-      <NotionHTML :domjson="dom.children" />
+      <NotionHTML :domjson="dom.children" :theme="theme" />
     </Toggle>
 
     <Heading1
@@ -86,7 +87,7 @@
     <!-- PARAGRAPH -->
 
     <p v-else-if="dom.type === 'paragraph'" :style="{ marginBottom: margin }">
-      <NotionHTML :domjson="dom.children" />
+      <NotionHTML :domjson="dom.children" :theme="theme" />
     </p>
 
     <!-- QUOTE -->
@@ -95,14 +96,14 @@
       v-else-if="dom.type === 'quote'"
       :style="{ marginBottom: margin }"
     >
-      <NotionHTML :domjson="dom.children" />
+      <NotionHTML :domjson="dom.children" :theme="theme" />
     </blockquote>
 
     <!-- LIST (BULLETED) -->
 
     <ul v-else-if="dom.type === 'ul'" :style="{ marginBottom: margin }">
       <li v-for="list in dom.children">
-        <NotionHTML :domjson="list.children" />
+        <NotionHTML :domjson="list.children" :theme="theme" />
       </li>
     </ul>
 
@@ -110,7 +111,7 @@
 
     <ol v-else-if="dom.type === 'ol'" :style="{ marginBottom: margin }">
       <li v-for="list in dom.children">
-        <NotionHTML :domjson="list.children" />
+        <NotionHTML :domjson="list.children" :theme="theme" />
       </li>
     </ol>
 
@@ -120,14 +121,14 @@
       <thead>
         <tr>
           <th v-for="cell in dom.children.shift()?.children">
-            <NotionHTML :domjson="cell.children" />
+            <NotionHTML :domjson="cell.children" :theme="theme" />
           </th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="row in dom.children">
           <td v-for="cell in row.children">
-            <NotionHTML :domjson="cell.children" />
+            <NotionHTML :domjson="cell.children" :theme="theme" />
           </td>
         </tr>
       </tbody>
@@ -139,7 +140,7 @@
       :summary="dom.content"
       :style="{ marginBottom: margin }"
     >
-      <NotionHTML :domjson="dom.children" />
+      <NotionHTML :domjson="dom.children" :theme="theme" />
     </Toggle>
 
     <!-- INLINE -->
@@ -147,7 +148,15 @@
     <span
       v-else-if="dom.type === 'inline_text'"
       :class="dom.color"
-      :style="{ display: 'inline' }"
+      :style="{
+        display: 'inline',
+        color:
+          dom.color === 'default'
+            ? theme === 'dark'
+              ? 'rgb(222,222,222)'
+              : 'rgb(22,22,22)'
+            : 'initial'
+      }"
       >{{ dom.content }}</span
     >
 
