@@ -2,7 +2,7 @@ import { App, createVNode, render } from 'vue'
 import Toast from '../hooks/Toast/Toast.vue'
 
 export const ElmethisPlugin = {
-  install(app: App) {
+  install(_app: App) {
     const toastVNode = createVNode(Toast)
     const container = document.createElement('div')
     document.body.appendChild(container)

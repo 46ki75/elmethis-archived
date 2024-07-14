@@ -83,7 +83,6 @@ export { default as Pagetop } from './components/Navigation/Pagetop/Pagetop.vue'
 // # --------------------------------------------------------------------------------
 
 export { default as NotionHTML } from './components/Notion/NotionHTML.vue'
-export { default as NotionRichText } from './components/Notion/NotionRichText.vue'
 
 // # --------------------------------------------------------------------------------
 //
