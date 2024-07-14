@@ -308,7 +308,7 @@ export const seed: DOMJSON[] = [
       {
         type: 'inline_text',
         content: 'は、シンプルで強力な',
-        color: 'default',
+        color: 'blue',
         children: []
       },
       {

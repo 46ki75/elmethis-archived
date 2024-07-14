@@ -151,36 +151,72 @@
       :style="{
         display: 'inline',
         color:
-          dom.color === 'default'
+          dom.color === 'default' || dom.color.endsWith('_background')
             ? theme === 'dark'
               ? 'rgb(222,222,222)'
               : 'rgb(22,22,22)'
-            : 'initial'
+            : ''
       }"
       >{{ dom.content }}</span
     >
 
     <u
       v-else-if="dom.type === 'inline_underline'"
-      :style="{ display: 'inline' }"
+      :class="dom.color"
+      :style="{
+        display: 'inline',
+        color:
+          dom.color === 'default' || dom.color.endsWith('_background')
+            ? theme === 'dark'
+              ? 'rgb(222,222,222)'
+              : 'rgb(22,22,22)'
+            : ''
+      }"
       >{{ dom.content }}</u
     >
 
     <em
       v-else-if="dom.type === 'inline_italic'"
-      :style="{ display: 'inline' }"
+      :class="dom.color"
+      :style="{
+        display: 'inline',
+        color:
+          dom.color === 'default' || dom.color.endsWith('_background')
+            ? theme === 'dark'
+              ? 'rgb(222,222,222)'
+              : 'rgb(22,22,22)'
+            : ''
+      }"
       >{{ dom.content }}</em
     >
 
     <code
       v-else-if="dom.type === 'inline_code'"
-      :style="{ display: 'inline' }"
+      :class="dom.color"
+      :style="{
+        display: 'inline',
+        color:
+          dom.color === 'default' || dom.color.endsWith('_background')
+            ? theme === 'dark'
+              ? 'rgb(222,222,222)'
+              : 'rgb(22,22,22)'
+            : ''
+      }"
       >{{ dom.content }}</code
     >
 
     <strong
       v-else-if="dom.type === 'inline_bold'"
-      :style="{ display: 'inline' }"
+      :class="dom.color"
+      :style="{
+        display: 'inline',
+        color:
+          dom.color === 'default' || dom.color.endsWith('_background')
+            ? theme === 'dark'
+              ? 'rgb(222,222,222)'
+              : 'rgb(22,22,22)'
+            : ''
+      }"
       >{{ dom.content }}</strong
     >
 
@@ -228,9 +264,6 @@ blockquote {
 }
 
 /* Foreground colors */
-.default {
-  color: initial;
-}
 
 .gray {
   color: #788191;
