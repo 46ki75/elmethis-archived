@@ -174,9 +174,9 @@ const isLoading = ref(true)
 onMounted(async () => {
   isLoading.value = true
   if (props.theme === 'light') {
-    await import('./prism-one-light.scss')
+    await import('@/components/Code/CodeBlock/prism-one-dark.scss')
   } else {
-    await import('./prism-one-dark.scss')
+    await import('@/components/Code/CodeBlock/prism-one-dark.scss')
   }
 
   switch (props.language) {
