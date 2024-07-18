@@ -34,11 +34,14 @@
       <NotionHTML :domjson="dom.children" :theme="theme" />
     </Callout>
 
+    <!-- CODEBLOCK -->
+
     <CodeBlock
       v-else-if="dom.type === 'code'"
       :code="dom.content"
       :margin="margin"
       :theme="theme"
+      :language="dom.extension.language"
     />
 
     <Divider v-else-if="dom.type === 'divider'" :margin="margin" />
