@@ -1,30 +1,36 @@
 <template>
   <Teleport to="body">
-    <div
-      class="background"
-      @click="$emit('close')"
-      :style="{
-        opacity: isVisible ? 1 : 0,
-        pointerEvents: isVisible ? 'auto' : 'none'
-      }"
+    <transition name="fade">
+      <div
+        v-if="isVisible"
+        class="background"
+        @click="$emit('close')"
+        :style="{
+          pointerEvents: isVisible ? 'auto' : 'none'
+        }"
+      >
+        <div class="container">
+          <div class="title" :style="{ opacity: isVisible ? 1 : 0 }">
+            {{ title }}
+          </div>
+
+          <div class="divider">
+            <Divider
+              :key="String(isVisible)"
+              :color="'rgba(255,255,255,0.6)'"
+            />
+          </div>
+
+          <div class="modal" @click.stop>
+            <slot />
+          </div>
+
+          <div class="flavor" :style="{ opacity: isVisible ? 1 : 0 }">
+            Click outside the modal window to close.
+          </div>
+        </div>
+      </div></transition
     >
-      <div class="container">
-        <div class="title" :style="{ opacity: isVisible ? 1 : 0 }">
-          {{ title }}
-        </div>
-        <div class="divider">
-          <Divider :key="String(isVisible)" :color="'rgba(255,255,255,0.6)'" />
-        </div>
-
-        <div class="modal" @click.stop :style="{ opacity: isVisible ? 1 : 0 }">
-          <slot />
-        </div>
-
-        <div class="flavor" :style="{ opacity: isVisible ? 1 : 0 }">
-          Click outside the modal window to close.
-        </div>
-      </div>
-    </div>
   </Teleport>
 </template>
 
@@ -63,6 +69,21 @@ const emit = defineEmits(['close'])
 // styles
 //
 // # --------------------------------------------------------------------------------
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 300ms;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 
 .background {
   position: fixed;
