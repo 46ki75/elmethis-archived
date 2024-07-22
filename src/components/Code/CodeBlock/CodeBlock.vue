@@ -120,6 +120,9 @@
 <script setup lang="ts">
 import Prism from 'prismjs'
 
+import './prism-one-light.scss'
+import './prism-one-dark.scss'
+
 import { onMounted, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
 import DotLoadingIcon from '../../Icons/DotLoadingIcon/DotLoadingIcon.vue'
@@ -177,11 +180,11 @@ const isLoading = ref(true)
 
 onMounted(async () => {
   isLoading.value = true
-  if (props.theme === 'light') {
-    await import('./prism-one-light.scss')
-  } else {
-    await import('./prism-one-dark.scss')
-  }
+  // if (props.theme === 'light') {
+  //   await import('./prism-one-light.scss')
+  // } else {
+  //   await import('./prism-one-dark.scss')
+  // }
 
   switch (props.language) {
     case 'abap':
