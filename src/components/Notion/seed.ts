@@ -382,5 +382,10 @@ export const seed: DOMJSON[] = [
         ]
       }
     ]
+  },
+  {
+    type: 'equation',
+    content: 'e=mc^2',
+    children: []
   }
 ]

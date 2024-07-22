@@ -46,6 +46,10 @@
 
     <Divider v-else-if="dom.type === 'divider'" :margin="margin" />
 
+    <!-- KaTeX (Formula) -->
+
+    <KaTex v-else-if="dom.type === 'equation'" :expression="dom.content" />
+
     <!-- HEADING -->
 
     <Toggle
@@ -244,6 +248,7 @@ import Heading2 from '../Typography/Heading2/Heading2.vue'
 import Heading3 from '../Typography/Heading3/Heading3.vue'
 import ImageWithModal from '../Image/ImageWithModal/ImageWithModal.vue'
 import Toggle from '../Containment/Toggle/Toggle.vue'
+import KaTex from '../Typography/KaTex/KaTex.vue'
 
 withDefaults(
   defineProps<{
