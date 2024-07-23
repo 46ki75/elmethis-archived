@@ -483,7 +483,7 @@ onMounted(async () => {
     }
   }
 
-  @import url('https://fonts.googleapis.com/css2?family=Courier%20Prime');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
   .code {
     margin: 0;
     animation: fade 0.2s both;
