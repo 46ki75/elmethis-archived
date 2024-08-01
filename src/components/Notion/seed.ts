@@ -332,7 +332,20 @@ export const seed: DOMJSON[] = [
       {
         type: 'inline_text',
         content:
-          'にします。このブログでは、基本的な使い方を紹介しましたが、公式ドキュメントを参照することでさらに詳細な機能を学ぶことができます。ぜひ試してみてください！',
+          'にします。このブログでは、基本的な使い方を紹介しましたが、公式ドキュメント',
+        color: 'default',
+        children: []
+      },
+      {
+        type: 'inline_code',
+        content: 'document',
+        color: 'default',
+        children: []
+      },
+      {
+        type: 'inline_text',
+        content:
+          'を参照することでさらに詳細な機能を学ぶことができます。ぜひ試してみてください！',
         color: 'default',
         children: []
       }

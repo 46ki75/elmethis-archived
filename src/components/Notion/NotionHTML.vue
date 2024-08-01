@@ -199,7 +199,10 @@
 
     <code
       v-else-if="dom.type === 'inline_code'"
-      :class="dom.color"
+      :class="{
+        [dom.color]: true,
+        'notion-inline-code': true
+      }"
       :style="{
         display: 'inline',
         color:
@@ -207,8 +210,7 @@
             ? theme === 'dark'
               ? 'rgb(222,222,222)'
               : 'rgb(22,22,22)'
-            : '',
-        fontFamily: '\'Courier Prime\', monospace'
+            : ''
       }"
       >{{ dom.content }}</code
     >
@@ -270,6 +272,15 @@ blockquote {
   padding: 0.25rem;
   margin: 0;
   border-left: solid 3px rgba($color: #000000, $alpha: 0.3);
+}
+
+code.notion-inline-code {
+  font-family: 'Source Code Pro';
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.125rem;
+  margin: 0 0.25rem;
+  background-color: rgba($color: #888888, $alpha: 0.15);
+  box-shadow: 0 0 0.25rem rgba($color: #000000, $alpha: 0.1);
 }
 
 /* Foreground colors */
