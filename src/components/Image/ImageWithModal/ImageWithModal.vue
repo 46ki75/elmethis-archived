@@ -34,21 +34,16 @@
   />
 
   <Teleport to="body">
-    <div
-      class="modal"
-      :style="{
-        background: `rgba(0, 0, 0, ${isModalShown ? 0.6 : 0})`,
-        pointerEvents: isModalShown ? 'all' : 'none'
-      }"
-      @click="() => (isModalShown = false)"
-    >
-      <img
-        v-if="!isLoading"
-        :src="src"
-        :alt="alt"
-        :style="{ opacity: isModalShown ? 1 : 0 }"
-      /></div
-  ></Teleport>
+    <transition name="modal">
+      <div
+        v-if="isModalShown"
+        class="modal"
+        @click="() => (isModalShown = false)"
+      >
+        <img :src="src" :alt="alt" />
+      </div>
+    </transition>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
@@ -140,6 +135,23 @@ watch(escape, (isKeyDown) => {
   }
 }
 
+.modal-enter-to,
+.modal-leave-from {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 300ms;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .image {
   width: 100%;
   user-select: none;
@@ -184,8 +196,6 @@ watch(escape, (isKeyDown) => {
   width: 100%;
   height: 100vh;
 
-  transition: all 0.2s;
-
   user-select: none;
   cursor: zoom-out;
 
@@ -193,10 +203,11 @@ watch(escape, (isKeyDown) => {
   justify-content: center;
   align-items: center;
 
+  background-color: rgba(0, 0, 0, 0.8);
+
   img {
     max-width: 100%;
     max-height: 100%;
-    transition: all 0.2s;
   }
 }
 </style>
