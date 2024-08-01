@@ -78,12 +78,12 @@ const external = computed(() => {
 //
 // # --------------------------------------------------------------------------------
 
-.link {
+a.link {
   all: unset;
   font-family: sans-serif;
   color: #5276c2;
 
-  border-bottom: dashed 1px rgba(183, 197, 228, 1);
+  border-bottom: solid 1px rgba(183, 197, 228, 0.5);
 
   display: inline-flex;
   flex-direction: row;
@@ -101,12 +101,14 @@ const external = computed(() => {
   );
   background-size: 100% 200%;
   background-position: 0% 0%;
+  background-repeat: no-repeat;
 
   overflow-wrap: break-word;
 
   &:hover {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
     border-bottom: dashed 1px rgba(183, 197, 228, 0);
+    border-bottom-color: rgba(183, 197, 228, 0);
     background-position: 0% 100%;
     border-radius: 0.25rem;
   }
