@@ -8,9 +8,10 @@
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "svipas.prettier-plus",
         "usernamehw.errorlens",
-        "Vue.volar"
+        "Vue.volar",
+        "Gruntfuggly.todo-tree",
+        "christian-kohler.path-intellisense"
       ]
     }
   },
