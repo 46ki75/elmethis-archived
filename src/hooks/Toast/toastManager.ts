@@ -15,7 +15,7 @@ export const toasts = ref<Toast[]>([])
 //
 // # --------------------------------------------------------------------------------
 
-interface AddToastInput {
+export interface AddToastInput {
   /**
    * **required!**
    *
