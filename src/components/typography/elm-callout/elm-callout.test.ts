@@ -1,7 +1,6 @@
 import { type VueWrapper, mount } from '@vue/test-utils'
 import { expect, it, describe, beforeEach } from 'vitest'
 import Callout from './elm-callout.vue'
-import { h } from 'vue'
 
 describe('Callout Component', async () => {
   let wrapper: VueWrapper
