@@ -141,7 +141,7 @@ function renderComponents(components: Component[]) {
         const caption =
           component.code.caption !== '' && component.code.caption != null
             ? component.code.caption
-            : component.code.language ?? 'plain text'
+            : (component.code.language ?? 'plain text')
 
         const node = h(CodeBlock, { language, code, caption })
 

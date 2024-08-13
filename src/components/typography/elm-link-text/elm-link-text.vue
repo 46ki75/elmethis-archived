@@ -1,8 +1,8 @@
 <template>
   <a
     :href="href"
-    :target="external ?? false ? '_blank' : '_top'"
-    :rel="external ?? false ? 'external noreferrer noopener' : ''"
+    :target="(external ?? false) ? '_blank' : '_top'"
+    :rel="(external ?? false) ? 'external noreferrer noopener' : ''"
     class="link"
   >
     {{ text }}
