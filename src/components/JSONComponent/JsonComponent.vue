@@ -393,7 +393,8 @@ function renderComponents(components: Component[]) {
       case 'text': {
         const node = h(JsonInlineComponent, { components: [component] })
 
-        results.push(h('p', {}, node))
+        // results.push(h('p', {}, node))
+        results.push(node)
 
         break
       }
@@ -433,4 +434,89 @@ function convertToString(components: Component[]): string {
 // styles
 //
 // # --------------------------------------------------------------------------------
+
+// # --------------------------------------------------------------------------------
+//
+// table
+//
+// # --------------------------------------------------------------------------------
+
+table {
+  width: fit-content;
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(138, 148, 191, 0.8);
+    border-radius: 3px;
+    opacity: 0.6;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f3f3f3;
+  }
+
+  thead {
+    tr {
+      background-color: #444547;
+      color: #ffffff;
+      text-align: left;
+
+      th {
+        border-right: 1px dashed #aaada9;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+
+      td {
+        border-right: 1px dashed #dddddd;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #dddddd;
+
+      &:nth-of-type(even) {
+        background-color: #f3f3f3;
+      }
+
+      .active-row {
+        font-weight: bold;
+        color: #005998;
+      }
+
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #e7eef6;
+      }
+    }
+  }
+
+  th,
+  td {
+    padding: 12px 15px;
+    white-space: nowrap;
+  }
+}
 </style>
