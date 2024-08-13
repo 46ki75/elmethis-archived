@@ -6,7 +6,7 @@ import { App, Plugin, createVNode, render } from 'vue'
 //
 // # --------------------------------------------------------------------------------
 
-import Toast from '../hooks/toast/Toast.vue'
+import Toast from './hooks/toast/Toast.vue'
 import { useToast } from './hooks/toast/useToast'
 
 // # --------------------------------------------------------------------------------
