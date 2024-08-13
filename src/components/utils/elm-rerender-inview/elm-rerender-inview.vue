@@ -1,9 +1,9 @@
 <template>
-  <div ref="observerElement" style="display: inline">
-    <div :key="renderKey" style="display: inline; vertical-align: top">
+  <template ref="observerElement" style="display: inline">
+    <template :key="renderKey" style="display: inline; vertical-align: top">
       <slot></slot>
-    </div>
-  </div>
+    </template>
+  </template>
 </template>
 
 <script setup lang="ts">
