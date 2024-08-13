@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/vue3'
 import '../src/style.scss'
 
 import { setup } from '@storybook/vue3'
-import { ElmethisPlugin } from '../src/plugins/ElmethisPlugin'
+import { ElmethisPlugin } from '../src'
 
 setup((app) => {
   app.use(ElmethisPlugin)
