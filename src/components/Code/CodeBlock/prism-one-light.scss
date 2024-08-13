@@ -10,7 +10,7 @@
  * --mono-2: hsl(230, 6%, 44%);
  * --mono-3: hsl(230, 4%, 64%)
  * --hue-1: hsl(198, 99%, 37%);
- * --hue-2: hsl(221, 87%, 60%);
+ * --hue-2: hsl(221, 60%, 46%)
  * --hue-3: hsl(301, 63%, 40%);
  * --hue-4: hsl(119, 34%, 47%);
  * --hue-5: hsl(5, 74%, 59%);
@@ -124,7 +124,7 @@
   .token.variable,
   .token.operator,
   .token.function {
-    color: hsl(221, 87%, 60%);
+    color: hsl(221, 60%, 46%);
   }
 
   .token.url {
@@ -189,7 +189,7 @@
   }
 
   .language-markdown .token.url > .token.content {
-    color: hsl(221, 87%, 60%);
+    color: hsl(221, 60%, 46%);
   }
 
   .language-markdown .token.url > .token.url,
@@ -331,7 +331,7 @@
   .rainbow-braces .token.token.punctuation.brace-level-3,
   .rainbow-braces .token.token.punctuation.brace-level-7,
   .rainbow-braces .token.token.punctuation.brace-level-11 {
-    color: hsl(221, 87%, 60%);
+    color: hsl(221, 60%, 46%);
   }
 
   .rainbow-braces .token.token.punctuation.brace-level-4,
