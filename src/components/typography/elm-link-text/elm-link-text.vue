@@ -105,6 +105,9 @@ a.link {
 
   overflow-wrap: break-word;
 
+  cursor: pointer;
+  transition: all 0.1s;
+
   &:hover {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
     border-bottom: dashed 1px rgba(183, 197, 228, 0);
@@ -116,9 +119,6 @@ a.link {
   &:active {
     transform: scale(0.95);
   }
-
-  cursor: pointer;
-  transition: all 0.1s;
 }
 
 @keyframes blink {

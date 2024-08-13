@@ -499,6 +499,8 @@ table {
     tr {
       border-bottom: 1px solid #dddddd;
 
+      transition: background-color 0.2s;
+
       &:nth-of-type(even) {
         background-color: #f3f3f3;
       }
@@ -507,8 +509,6 @@ table {
         font-weight: bold;
         color: #005998;
       }
-
-      transition: background-color 0.2s;
 
       &:hover {
         background-color: #e7eef6;
