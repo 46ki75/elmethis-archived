@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title='docs/Get Started' />
+
+# Get Started
+
+## Nuxt3
+
+Register the plugin as follows:
+
+`plugins/elmethis-plugin.ts`
+
+```ts
+import { defineNuxtPlugin } from '#app'
+import { ElmethisPlugin } from 'elmethis'
+
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.vueApp.use(ElmethisPlugin)
+})
+```
+
+Load the CSS: `nuxt.config.ts`
+
+```ts
+export default defineNuxtConfig({
+  css: ['elmethis/dist/style.css']
+})
+```
+
+## Vue3 (Vite)
+
+In `main.ts`, load the CSS and register the plugin:
+
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
+
+import 'elmethis/dist/style.css'
+import { ElmethisPlugin } from 'elmethis'
+
+const app = createApp(App)
+app.use(ElmethisPlugin)
+app.mount('#app')
+```
