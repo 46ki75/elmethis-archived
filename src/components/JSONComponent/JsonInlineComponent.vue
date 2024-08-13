@@ -126,6 +126,10 @@ code {
   border-radius: 0.25rem;
 }
 
+.default {
+  color: rgba($color: #000000, $alpha: 0.8);
+}
+
 .gray {
   color: #788191;
 }
