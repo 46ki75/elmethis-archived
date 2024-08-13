@@ -1,6 +1,6 @@
 {
   "name": "elmethis",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "type": "module",
   "engines": {
     "node": "20"
@@ -20,7 +20,7 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs"
+      "require": "./dist/index.cjs"
     },
     "./dist/style.css": {
       "import": "./dist/style.css",
