@@ -76,10 +76,12 @@ export const ElmethisPlugin: Plugin = {
     //
     // # --------------------------------------------------------------------------------
 
-    const toastVNode = createVNode(Toast)
-    const container = document.createElement('div')
-    document.body.appendChild(container)
-    render(toastVNode, container)
+    if (typeof window !== 'undefined') {
+      const toastVNode = createVNode(Toast)
+      const container = document.createElement('div')
+      document.body.appendChild(container)
+      render(toastVNode, container)
+    }
 
     app.provide('useToast', useToast)
 
