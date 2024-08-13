@@ -1,0 +1,37 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+
+import * as ModalStories from './elm-modal.stories'
+
+# Checkbox
+
+<Meta of={ModalStories} />
+
+<Canvas of={ModalStories.Primary} />
+
+<Controls />
+
+```html
+<template>
+  <div>
+    <button @click="toggleModal">Toggle Modal</button>
+    <Modal :isVisible="isVisible" @close="toggleModal">
+      <div>
+        It was popularised in the 1960s with the release of Letraset sheets
+        containing Lorem Ipsum passages, and more recently with desktop
+        publishing software like Aldus PageMaker including versions of Lorem
+        Ipsum.
+      </div>
+    </Modal>
+  </div>
+</template>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+  import Modal from 'elmethis'
+
+  const isVisible = ref(false)
+  const toggleModal = () => {
+    isVisible.value = !isVisible.value
+  }
+</script>
+```
