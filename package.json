@@ -45,7 +45,6 @@
     "json-component-spec": "^0.1.19",
     "katex": "^0.16.11",
     "lodash-es": "^4.17.21",
-    "notion-ex": "^0.1.12",
     "polished": "^4.3.1",
     "prismjs": "^1.29.0",
     "uuid": "^10.0.0",
