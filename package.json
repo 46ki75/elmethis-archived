@@ -43,10 +43,11 @@
   "dependencies": {
     "@storybook/addon-mdx-gfm": "^8.2.7",
     "@vueuse/core": "^10.9.0",
+    "axios": "^1.7.3",
+    "json-component-spec": "^0.1.19",
     "katex": "^0.16.11",
     "lodash-es": "^4.17.21",
     "notion-ex": "^0.1.12",
-    "notion-markup-utils": "^1.4.11",
     "polished": "^4.3.1",
     "prismjs": "^1.29.0",
     "uuid": "^10.0.0",
