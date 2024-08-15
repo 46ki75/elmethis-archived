@@ -54,7 +54,7 @@ const Checkbox = defineAsyncComponent(
 //
 // # --------------------------------------------------------------------------------
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     theme: 'light' | 'dark'
     components: Component[]
@@ -169,7 +169,12 @@ function renderComponents(components: Component[]) {
             ? component.code.caption
             : (component.code.language ?? 'plain text')
 
-        const node = h(CodeBlock, { language, code, caption })
+        const node = h(CodeBlock, {
+          language,
+          code,
+          caption,
+          style: { marginBottom: props.margin }
+        })
 
         results.push(node)
 
@@ -236,7 +241,8 @@ function renderComponents(components: Component[]) {
       case 'image': {
         const node = h(ImageWithModal, {
           src: component.image.src,
-          alt: component.image.alt
+          alt: component.image.alt,
+          style: { marginBottom: props.margin }
         })
 
         results.push(node)
@@ -463,6 +469,10 @@ function convertToString(components: Component[]): string {
 // styles
 //
 // # --------------------------------------------------------------------------------
+
+p {
+  margin-bottom: 2rem;
+}
 
 // # --------------------------------------------------------------------------------
 //
