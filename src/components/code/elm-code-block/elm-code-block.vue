@@ -22,14 +22,7 @@
         <span>{{ caption ?? language }}</span>
       </div>
 
-      <div
-        class="copy"
-        @click="
-          () => {
-            copy(code)
-          }
-        "
-      >
+      <div class="copy">
         <span
           :style="{
             opacity: copied ? 1 : 0,
@@ -38,7 +31,8 @@
         >
           Source code copied!
         </span>
-        <div class="copy-icon">
+        <NumberedListIcon class="icon" @click="handleLineSwitch" />
+        <div class="icon" @click="copy(code)">
           <ClipboardDocumentIcon v-if="!copied" />
           <ClipboardDocumentCheckIcon v-else-if="copied" />
         </div>
@@ -96,7 +90,7 @@
       </div>
       <pre
         v-else
-        class="code"
+        :class="{ code: true, 'line-numbers': showLineNumber }"
       ><code :class="`language-${language}`">{{ code.trim() }}</code></pre>
     </div>
   </div>
@@ -107,6 +101,8 @@ import Prism from 'prismjs'
 
 import './prism-one-light.scss'
 import './prism-one-dark.scss'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
 
 import { onMounted, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
@@ -116,7 +112,8 @@ import TurnText from '../../text/elm-turn-text/elm-turn-text.vue'
 import {
   CodeBracketIcon,
   ClipboardDocumentIcon,
-  ClipboardDocumentCheckIcon
+  ClipboardDocumentCheckIcon,
+  NumberedListIcon
 } from '@heroicons/vue/24/outline'
 
 declare module 'prismjs/components/prism-rust' {
@@ -168,6 +165,17 @@ const props = withDefaults(
 
 const { copy, copied } = useClipboard({ source: props.code })
 const isLoading = ref(true)
+
+const showLineNumber = ref(true)
+
+const handleLineSwitch = () => {
+  showLineNumber.value = !showLineNumber.value
+
+  const timerID = setTimeout(() => {
+    Prism.highlightAll(false)
+    clearTimeout(timerID)
+  }, 0)
+}
 
 onMounted(async () => {
   isLoading.value = true
@@ -435,9 +443,10 @@ onMounted(async () => {
     }
   }
 
-  .copy-icon {
+  .icon {
     width: 20px;
     height: 20px;
+    transition: all 0.2s;
 
     &:hover {
       opacity: 0.5;
