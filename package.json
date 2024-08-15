@@ -1,6 +1,6 @@
 {
   "name": "elmethis",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "type": "module",
   "engines": {
     "node": "20"
@@ -40,6 +40,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.1.5",
     "@vueuse/core": "^10.9.0",
     "axios": "^1.3.1",
     "json-component-spec": "^0.1.19",
