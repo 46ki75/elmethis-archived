@@ -4,40 +4,29 @@
       class="summary"
       :style="{ borderRadius: isOpen ? '0.25rem 0.25rem 0 0' : '0.25rem' }"
     >
-      <div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="12"
-          opacity="0.6"
-          viewBox="0 0 352 512"
+      <div class="summary-left">
+        <PlusIcon
           :style="{
             marginRight: '0.5rem',
             transition: 'all 0.2s',
-            transform: `rotateZ(${isOpen ? '180deg' : '45deg'})`
+            transform: `rotateZ(${isOpen ? '45deg' : '180deg'})`,
+            width: 16,
+            height: 16,
+            color: '#3c8658'
           }"
-        >
-          <path
-            d="M242.7 256l100.1-100.1c12.3-12.3 12.3-32.2 0-44.5l-22.2-22.2c-12.3-12.3-32.2-12.3-44.5 0L176 189.3 75.9 89.2c-12.3-12.3-32.2-12.3-44.5 0L9.2 111.5c-12.3 12.3-12.3 32.2 0 44.5L109.3 256 9.2 356.1c-12.3 12.3-12.3 32.2 0 44.5l22.2 22.2c12.3 12.3 32.2 12.3 44.5 0L176 322.7l100.1 100.1c12.3 12.3 32.2 12.3 44.5 0l22.2-22.2c12.3-12.3 12.3-32.2 0-44.5L242.7 256z"
-            fill="darkgreen"
-          />
-        </svg>
-        <span>{{ summary }}</span>
+        />
+
+        <div>{{ summary }}</div>
       </div>
 
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="12"
-        viewBox="0 0 448 512"
+      <ChevronUpIcon
         :style="{
           transform: `rotateX(${isOpen ? '180deg' : '0deg'})`,
-          transition: 'all 0.2s'
+          transition: 'all 0.2s',
+          width: 20,
+          height: 20
         }"
-      >
-        <path
-          d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z"
-        />
-      </svg>
+      />
     </summary>
   </details>
 
@@ -68,6 +57,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+
+import { PlusIcon, ChevronUpIcon } from '@heroicons/vue/20/solid'
 
 const isOpen = ref<boolean>(false)
 const setIsOpen = (flag: boolean) => {
@@ -104,6 +95,12 @@ defineProps<{
   user-select: none;
   padding: 0.75rem;
   border: solid 1px rgba(0, 0, 0, 0.25);
+
+  .summary-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
 
 .children-enter-to,
