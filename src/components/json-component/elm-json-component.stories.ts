@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 import JSONComponent from './elm-json-component.vue'
-import { seed } from './seed'
+import { seed, callout } from './seed'
 
 const meta: Meta<typeof JSONComponent> = {
   component: JSONComponent,
@@ -17,5 +17,11 @@ type Story = StoryObj<typeof JSONComponent>
 export const Bold: Story = {
   args: {
     components: seed
+  }
+}
+
+export const Callout: Story = {
+  args: {
+    components: callout
   }
 }

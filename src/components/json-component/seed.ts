@@ -2469,3 +2469,151 @@ export const seed: Component[] = [
     paragraph: { children: [] }
   }
 ]
+
+export const callout: Component[] = [
+  {
+    component: 'callout',
+    inline: false,
+    callout: {
+      color: 'blue',
+      children: [
+        {
+          component: 'paragraph',
+          inline: false,
+          paragraph: {
+            children: [
+              {
+                component: 'text',
+                inline: true,
+                text: {
+                  content: 'If a user-defined ',
+                  annotations: {
+                    bold: false,
+                    code: false,
+                    italic: false,
+                    strikethrough: false,
+                    underline: false
+                  },
+                  color: {
+                    fg: 'default',
+                    bg: 'default'
+                  }
+                }
+              },
+              {
+                component: 'text',
+                inline: true,
+                text: {
+                  content: 'bridge network',
+                  annotations: {
+                    bold: true,
+                    code: false,
+                    italic: false,
+                    strikethrough: false,
+                    underline: false
+                  },
+                  color: {
+                    fg: 'blue',
+                    bg: 'default'
+                  }
+                }
+              },
+              {
+                component: 'text',
+                inline: true,
+                text: {
+                  content:
+                    ' is created, a DNS resolver is automatically enabled to ',
+                  annotations: {
+                    bold: false,
+                    code: false,
+                    italic: false,
+                    strikethrough: false,
+                    underline: false
+                  },
+                  color: {
+                    fg: 'default',
+                    bg: 'default'
+                  }
+                }
+              },
+              {
+                component: 'text',
+                inline: true,
+                text: {
+                  content: 'allow communication between containers',
+                  annotations: {
+                    bold: true,
+                    code: false,
+                    italic: false,
+                    strikethrough: false,
+                    underline: false
+                  },
+                  color: {
+                    fg: 'default',
+                    bg: 'default'
+                  }
+                }
+              },
+              {
+                component: 'text',
+                inline: true,
+                text: {
+                  content: ' ',
+                  annotations: {
+                    bold: false,
+                    code: false,
+                    italic: false,
+                    strikethrough: false,
+                    underline: false
+                  },
+                  color: {
+                    fg: 'default',
+                    bg: 'default'
+                  }
+                }
+              },
+              {
+                component: 'text',
+                inline: true,
+                text: {
+                  content: 'using container names',
+                  annotations: {
+                    bold: true,
+                    code: false,
+                    italic: false,
+                    strikethrough: false,
+                    underline: false
+                  },
+                  color: {
+                    fg: 'purple',
+                    bg: 'default'
+                  }
+                }
+              },
+              {
+                component: 'text',
+                inline: true,
+                text: {
+                  content: '.',
+                  annotations: {
+                    bold: false,
+                    code: false,
+                    italic: false,
+                    strikethrough: false,
+                    underline: false
+                  },
+                  color: {
+                    fg: 'default',
+                    bg: 'default'
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      icon: 'info'
+    }
+  }
+]
