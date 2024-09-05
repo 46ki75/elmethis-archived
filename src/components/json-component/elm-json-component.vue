@@ -8,45 +8,20 @@
 
 <script setup lang="ts">
 import type { Component } from 'json-component-spec'
-import { defineAsyncComponent, h, VNode } from 'vue'
+import { h, VNode } from 'vue'
 
-const JsonInlineComponent = defineAsyncComponent(
-  () => import('./elm-json-inline-component.vue')
-)
-const Heading1 = defineAsyncComponent(
-  () => import('../typography/elm-heading-1/elm-heading-1.vue')
-)
-const Heading2 = defineAsyncComponent(
-  () => import('../typography/elm-heading-2/elm-heading-2.vue')
-)
-const Heading3 = defineAsyncComponent(
-  () => import('../typography/elm-heading-3/elm-heading-3.vue')
-)
-
-const Toggle = defineAsyncComponent(
-  () => import('../containment/elm-toggle/elm-toggle.vue')
-)
-const CodeBlock = defineAsyncComponent(
-  () => import('../code/elm-code-block/elm-code-block.vue')
-)
-const BookmarkCard = defineAsyncComponent(
-  () => import('../typography/elm-bookmark-card/elm-bookmark-card.vue')
-)
-const Callout = defineAsyncComponent(
-  () => import('../typography/elm-callout/elm-callout.vue')
-)
-const ImageWithModal = defineAsyncComponent(
-  () => import('../image/elm-image-with-modal/elm-image-with-modal.vue')
-)
-const Divider = defineAsyncComponent(
-  () => import('../typography/elm-divider/elm-divider.vue')
-)
-const KaTex = defineAsyncComponent(
-  () => import('../typography/elm-katex/elm-katex.vue')
-)
-const Checkbox = defineAsyncComponent(
-  () => import('../form/elm-checkbox/elm-checkbox.vue')
-)
+import JsonInlineComponent from './elm-json-inline-component.vue'
+import Heading1 from '../typography/elm-heading-1/elm-heading-1.vue'
+import Heading2 from '../typography/elm-heading-2/elm-heading-2.vue'
+import Heading3 from '../typography/elm-heading-3/elm-heading-3.vue'
+import Toggle from '../containment/elm-toggle/elm-toggle.vue'
+import CodeBlock from '../code/elm-code-block/elm-code-block.vue'
+import BookmarkCard from '../typography/elm-bookmark-card/elm-bookmark-card.vue'
+import Callout from '../typography/elm-callout/elm-callout.vue'
+import ImageWithModal from '../image/elm-image-with-modal/elm-image-with-modal.vue'
+import Divider from '../typography/elm-divider/elm-divider.vue'
+import KaTex from '../typography/elm-katex/elm-katex.vue'
+import Checkbox from '../form/elm-checkbox/elm-checkbox.vue'
 
 // # --------------------------------------------------------------------------------
 //
