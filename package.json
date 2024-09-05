@@ -1,6 +1,6 @@
 {
   "name": "elmethis",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "type": "module",
   "engines": {
     "node": "20"
@@ -48,6 +48,9 @@
     "lodash-es": "^4.17.21",
     "polished": "^4.3.1",
     "prismjs": "^1.29.0",
+    "remark": "^15.0.1",
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.0",
     "uuid": "^10.0.0",
     "vue": "^3.4.21"
   },
@@ -63,6 +66,7 @@
     "@storybook/vue3-vite": "^8.2.9",
     "@types/katex": "^0.16.7",
     "@types/lodash-es": "^4.17.12",
+    "@types/mdast": "^4.0.4",
     "@types/prismjs": "^1.26.4",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@vitejs/plugin-vue": "^5.0.4",
